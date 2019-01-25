@@ -1,0 +1,41 @@
+{
+  "components": { "schemas": {} },
+  "info": { "title": "", "version": "1.0.0" },
+  "openapi": "3.0.0",
+  "paths": {
+    "/test/": {
+      "get": {
+        "operationId": "TestController.getAll",
+        "responses": {
+          "200": {
+            "content": { "application/json": {} },
+            "description": "Successful response"
+          }
+        },
+        "summary": "Get all",
+        "tags": ["Test"]
+      }
+    },
+    "/test/{id}": {
+      "get": {
+        "operationId": "TestController.getOne",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": { "application/json": {} },
+            "description": "Successful response"
+          }
+        },
+        "summary": "Get one",
+        "tags": ["Test"]
+      }
+    }
+  }
+}

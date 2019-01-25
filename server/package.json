@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsc && concurrently --kill-others \"tsc --watch\" \"nodemon --inspect out/index.js dev\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "api-spec-converter": "^2.7.23",
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "parcel": "^1.11.0",
+    "routing-controllers": "^0.7.7",
+    "routing-controllers-openapi": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9",
+    "typescript": "^3.2.4"
+  }
+}
