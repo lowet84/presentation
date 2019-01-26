@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.html",
-  "dependencies": {
-    "autorest": "^2.0.4283"
+  "dependencies": {},
+  "devDependencies": {
+    "@types/isomorphic-fetch": "0.0.34",
+    "openapi-client": "^1.0.4"
   },
-  "devDependencies": {},
   "scripts": {
-    "autorest": "autorest --typescript --input-file=openApi.json --output-folder=src/client"
+    "generate": "openapi -s openApi.json -l ts -o src/client"
   },
   "author": "",
   "license": "ISC"
