@@ -3,13 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.html",
-  "dependencies": {},
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "vue": "^2.5.22",
+    "vue-hot-reload-api": "^2.3.1",
+    "vue-router": "^3.0.2",
+    "vue-typed": "^2.1.4"
+  },
   "devDependencies": {
     "@types/isomorphic-fetch": "0.0.34",
-    "openapi-client": "^1.0.4"
+    "@types/node": "^10.12.18",
+    "@vue/component-compiler-utils": "^2.5.1",
+    "openapi-client": "^1.0.4",
+    "parcel": "^1.11.0",
+    "typescript": "^3.2.4",
+    "vue-template-compiler": "^2.5.22"
   },
   "scripts": {
-    "generate": "openapi -s openApi.json -l ts -o src/client"
+    "generate": "node generate.js",
+    "start": "parcel src/dev.html"
   },
   "author": "",
   "license": "ISC"

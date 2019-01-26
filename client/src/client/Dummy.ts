@@ -5,7 +5,7 @@ import * as gateway from './gateway'
 /**
  * Get all
  */
-export function DummyControllergetAll(): Promise<api.Response<any>> {
+export function DummyControllergetAll(): Promise<api.Response<Test[]>> {
   return gateway.request(DummyControllergetAllOperation)
 }
 
@@ -15,7 +15,7 @@ export function DummyControllergetAll(): Promise<api.Response<any>> {
  * @param {number} id 
  * @return {Promise<object>} Successful response
  */
-export function DummyControllergetOne(id: number): Promise<api.Response<any>> {
+export function DummyControllergetOne(id: number): Promise<api.Response<Test>> {
   const parameters: api.OperationParamGroups = {
     path: {
       id

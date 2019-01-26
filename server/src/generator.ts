@@ -1,7 +1,7 @@
 import { getMetadataArgsStorage } from 'routing-controllers'
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import 'reflect-metadata'
-import { writeFileSync } from 'fs'
+import { writeFileSync, existsSync, mkdirSync, readdirSync, createReadStream, createWriteStream } from 'fs'
 import './config'
 import * as ts from 'typescript'
 
@@ -61,4 +61,13 @@ for (const sourceFile of program.getSourceFiles()) {
   }
 }
 
-console.log(definitions)
+writeFileSync('../client/returnTypes.json', JSON.stringify(definitions), 'utf8')
+var clientTypingsDir = '../client/typings/'
+if (!existsSync(clientTypingsDir)){
+  mkdirSync(clientTypingsDir);
+}
+var typingsDir = './typings/'
+var files = readdirSync(typingsDir)
+files.forEach(file => {
+  createReadStream(typingsDir+file).pipe(createWriteStream(clientTypingsDir+file));
+});

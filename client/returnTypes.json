@@ -1,0 +1,1 @@
+[{"method":"TestControllergetAll","type":"Test[]","controller":"Test"},{"method":"TestControllergetOne","type":"Test","controller":"Test"},{"method":"DummyControllergetAll","type":"Test[]","controller":"Dummy"},{"method":"DummyControllergetOne","type":"Test","controller":"Dummy"}]
