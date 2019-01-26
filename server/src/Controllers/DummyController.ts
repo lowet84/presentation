@@ -8,8 +8,8 @@ import {
   Delete
 } from 'routing-controllers'
 
-@JsonController('/test')
-export class TestController {
+@JsonController('/dummy')
+export class DummyController {
   items: Test[] 
 
   constructor() {
