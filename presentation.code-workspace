@@ -18,6 +18,8 @@
       "**/.cache": true,
       "**/dist": true
     },
-    "vetur.format.defaultFormatter.ts": "prettier"
+    "vetur.format.defaultFormatter.ts": "prettier",
+    "debug.node.autoAttach": "on",
+    "debug.toolBarLocation": "docked"
   }
 }
