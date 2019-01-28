@@ -8,12 +8,15 @@
     "vue": "^2.5.22",
     "vue-hot-reload-api": "^2.3.1",
     "vue-router": "^3.0.2",
-    "vue-typed": "^2.1.4"
+    "vue-typed": "^2.1.4",
+    "vuetify": "^1.4.3"
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "0.0.34",
     "@types/node": "^10.12.18",
     "@vue/component-compiler-utils": "^2.5.1",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9",
     "openapi-client": "^1.0.4",
     "parcel": "^1.11.0",
     "typescript": "^3.2.4",
@@ -21,7 +24,8 @@
   },
   "scripts": {
     "generate": "node generate.js",
-    "start": "parcel src/dev.html"
+    "start": "concurrently --kill-others \"nodemon --ignore dist/* generate.js\" \"parcel src/dev.html\"",
+    "build": "parcel build src/index.html"
   },
   "author": "",
   "license": "ISC"

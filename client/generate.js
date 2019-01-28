@@ -15,16 +15,14 @@ function complete(spec) {
     var code = fs.readFileSync('src/client/' + type.controller + '.ts', 'utf8')
     var lines = code.split(/\r|\n/)
     var line = lines.find(d => d.includes(`export function ${type.method}(`))
-    var newLine = line.replace(
-      'Promise<api.Response<any>>',
-      `Promise<api.Response<${type.type}>>`
-    )
-    var code = code.replace(line, newLine)
-    var code = fs.writeFileSync(
-      'src/client/' + type.controller + '.ts',
-      code,
-      'utf8'
-    )
+    if (line) {
+      var newLine = line.replace(
+        'Promise<api.Response<any>>',
+        `Promise<api.Response<${type.type}>>`
+      )
+      var code = code.replace(line, newLine)
+      fs.writeFileSync('src/client/' + type.controller + '.ts', code, 'utf8')
+    }
   })
 }
 
