@@ -2,11 +2,25 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import { init } from './client/gateway'
+import Vuex, {Module} from 'vuex'
+
+import counter from './store/Counter';
+
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+  state: {},
+  modules: {
+    counter
+  }
+});
 
 // @ts-ignore
 import Vuetify from 'vuetify/lib/components/Vuetify'
 // @ts-ignore
 import VApp from 'vuetify/lib/components/VApp'
+// @ts-ignore
+import VGrid from 'vuetify/lib/components/VGrid'
 // @ts-ignore
 import VBtn from 'vuetify/lib/components/VBtn'
 // @ts-ignore
@@ -15,6 +29,7 @@ import { Ripple } from 'vuetify/lib/directives'
 Vue.use(Vuetify, {
   components: {
     VApp,
+    VGrid,
     VBtn
   },
   directives: {
@@ -29,5 +44,6 @@ init({ url: window.url })
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
