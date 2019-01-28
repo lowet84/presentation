@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>Home</div>
+    <v-btn color="info">Info</v-btn>
   </div>
 </template>
 
@@ -9,9 +9,7 @@ import Vue from 'vue'
 import { Component } from 'vue-typed'
 
 @Component()
-export default class extends Vue {
-  
-}
+export default class extends Vue {}
 </script>
 
 <style lang="css">

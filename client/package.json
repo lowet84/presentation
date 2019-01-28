@@ -4,7 +4,6 @@
   "description": "",
   "main": "src/index.html",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "vue": "^2.5.22",
     "vue-hot-reload-api": "^2.3.1",
     "vue-router": "^3.0.2",
@@ -19,13 +18,14 @@
     "nodemon": "^1.18.9",
     "openapi-client": "^1.0.4",
     "parcel": "^1.11.0",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
     "typescript": "^3.2.4",
     "vue-template-compiler": "^2.5.22"
   },
   "scripts": {
     "generate": "node generate.js",
-    "start": "concurrently --kill-others \"nodemon --ignore dist/* generate.js\" \"parcel src/dev.html\"",
-    "build": "parcel build src/index.html"
+    "start": "concurrently --kill-others \"nodemon --ignore dist/* --ignore build/* generate.js\" \"parcel src/dev.html\"",
+    "build": "parcel build src/index.html --out-dir build --no-source-maps"
   },
   "author": "",
   "license": "ISC"
