@@ -10,7 +10,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { TestControllergetOne } from './client/Test'
 
 export default class extends Vue {
 }
