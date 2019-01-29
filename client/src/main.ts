@@ -5,13 +5,15 @@ import { init } from './client/gateway'
 import Vuex, {Module} from 'vuex'
 
 import counter from './store/Counter';
+import authentication from './store/Authentication'
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {},
   modules: {
-    counter
+    counter,
+    authentication
   }
 });
 

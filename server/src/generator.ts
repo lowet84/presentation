@@ -22,7 +22,7 @@ Object.keys(spec.paths).forEach(key =>
       ].operationId.replace('.', ''))
   )
 )
-writeFileSync('../client/openApi.json', JSON.stringify(spec), 'utf8')
+writeFileSync('../client/openApi/openApi.json', JSON.stringify(spec), 'utf8')
 
 let program = ts.createProgram(['src/index.ts'], {
   outDir: './out',
@@ -61,7 +61,7 @@ for (const sourceFile of program.getSourceFiles()) {
   }
 }
 
-writeFileSync('../client/returnTypes.json', JSON.stringify(definitions), 'utf8')
+writeFileSync('../client/openApi/returnTypes.json', JSON.stringify(definitions), 'utf8')
 var clientTypingsDir = '../client/typings/'
 if (!existsSync(clientTypingsDir)){
   mkdirSync(clientTypingsDir);

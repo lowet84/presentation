@@ -1,0 +1,1 @@
+[{"method":"TestControllergetAll","type":"Test[]","controller":"Test"},{"method":"TestControllergetOne","type":"Test","controller":"Test"},{"method":"LoginControllerlogin","type":"LoginResponse","controller":"Login"}]
