@@ -7,10 +7,12 @@ import {
   Put,
   Delete
 } from 'routing-controllers'
+const uuidv1 = require('uuid/v1')
 
 @JsonController('/login')
 export class LoginController {
   password: string
+  static token: string
 
   constructor() {
     this.password = process.argv[3]
@@ -18,7 +20,8 @@ export class LoginController {
 
   @Post('/:password')
   login(@Param('password') password: string): LoginResponse {
-    if(password === this.password) return { token: '_' + Math.random().toString(36).substr(2, 9) }
+    LoginController.token = uuidv1()
+    if (password === this.password) return { token: LoginController.token }
     throw 'Wrong password'
   }
 }

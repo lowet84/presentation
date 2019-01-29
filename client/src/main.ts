@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import { init } from './client/gateway'
 import Vuex from 'vuex'
 
 import counter from './store/Counter';
@@ -40,13 +39,10 @@ Vue.use(Vuetify, {
 })
 
 import 'vuetify/src/stylus/app.styl'
-
-function getAuthorization(security) {
-  console.log(security)
-};
+import ServiceBase from './service/ServiceBase';
 
 // @ts-ignore
-init({ url: window.url, getAuthorization  })
+ServiceBase.init(window.url)
 new Vue({
   el: '#app',
   router,

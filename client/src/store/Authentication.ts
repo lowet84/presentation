@@ -1,22 +1,30 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
-import { LoginControllerlogin } from '../client/Login'
-import { TestControllergetAll } from '../client/Test';
+import LoginService from '../service/LoginService'
+import TestService from '../service/TestService';
+import ServiceBase from '../service/ServiceBase';
 
 @Module({ namespaced: true })
 export default class Authentication extends VuexModule {
+  loginService = new LoginService()
+  testService = new TestService()
   tokenString = ''
 
-  @Mutation setToken(token: string) {
-    this.tokenString = token
+  @Mutation setToken(tokenString: string) {
+    this.tokenString = tokenString
+    ServiceBase.token = tokenString
   }
 
-  @Action({ commit: 'setToken' }) 
-  async login() {
-    var result = await LoginControllerlogin('dummy')
-    console.log(result.data.token)
-    var test = await TestControllergetAll()
-    console.log(test)
-    return result.data.token
+  @Action({ commit: 'setToken' })
+  async login(password: string) {
+    var token = await this.loginService.login(password)
+    console.log(token)
+    return token
+  }
+
+  @Action
+  async test() {
+    var result = await this.testService.test()
+    console.log(result)
   }
 
   get token() {

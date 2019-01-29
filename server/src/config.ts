@@ -9,8 +9,7 @@ var config: RoutingControllersOptions = {
   controllers: [TestController, LoginController],
   authorizationChecker: async (action: Action, roles: string[]) => {
     const token = action.request.headers['authorization']
-
-    return false
+    return token === `Bearer ${LoginController.token}`
   }
 }
 

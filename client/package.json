@@ -5,6 +5,7 @@
   "main": "src/index.html",
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "url-join": "^4.0.0",
     "vue": "^2.5.22",
     "vue-class-component": "^6.3.2",
     "vue-hot-reload-api": "^2.3.1",
@@ -28,7 +29,7 @@
   },
   "scripts": {
     "generate": "node generate.js",
-    "start": "concurrently --kill-others \"nodemon generate.js\" \"parcel src/dev.html\"",
+    "start": "parcel src/dev.html",
     "build": "parcel build src/index.html --out-dir build --no-source-maps"
   },
   "author": "",

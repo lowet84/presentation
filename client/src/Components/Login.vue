@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <v-btn color="info" @click="login()">Log in</v-btn>
+    <v-btn color="info" @click="login('dummy')">Log in</v-btn>
+    <v-btn color="error" @click="test()">Test</v-btn>
   </div>
 </template>
 
@@ -13,6 +14,8 @@ const authentication = namespace('authentication')
 @Component
 export default class extends Vue {
   @authentication.Action login
+  @authentication.Action test
+  @authentication.Getter token
 }
 </script>
 

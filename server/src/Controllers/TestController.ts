@@ -26,6 +26,7 @@ export class TestController {
     return this.items
   }
 
+  @Authorized()
   @Get('/:id')
   getOne(@Param('id') id: number): Test {
     return this.items[id]
