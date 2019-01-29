@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import { init } from './client/gateway'
-import Vuex, {Module} from 'vuex'
+import Vuex from 'vuex'
 
 import counter from './store/Counter';
 import authentication from './store/Authentication'
@@ -41,8 +41,12 @@ Vue.use(Vuetify, {
 
 import 'vuetify/src/stylus/app.styl'
 
+function getAuthorization(security) {
+  console.log(security)
+};
+
 // @ts-ignore
-init({ url: window.url })
+init({ url: window.url, getAuthorization  })
 new Vue({
   el: '#app',
   router,

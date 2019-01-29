@@ -5,7 +5,8 @@ import {
   Get,
   Post,
   Put,
-  Delete
+  Delete,
+  Authorized
 } from 'routing-controllers'
 
 @JsonController('/test')
@@ -19,6 +20,7 @@ export class TestController {
       { value: 'c' }]
   }
 
+  @Authorized()
   @Get('/')
   getAll(): Test[] {
     return this.items

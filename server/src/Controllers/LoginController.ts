@@ -10,14 +10,15 @@ import {
 
 @JsonController('/login')
 export class LoginController {
-  items: Test[]
+  password: string
 
   constructor() {
-    this.items = [{ value: 'a' }, { value: 'b' }, { value: 'c' }]
+    this.password = process.argv[3]
   }
 
-  @Post('/')
-  login(@Body() login: Login): LoginResponse {
-    return { token: 'dummytoken' }
+  @Post('/:password')
+  login(@Param('password') password: string): LoginResponse {
+    if(password === this.password) return { token: '_' + Math.random().toString(36).substr(2, 9) }
+    throw 'Wrong password'
   }
 }

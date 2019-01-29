@@ -1,9 +1,7 @@
-import {
-  createExpressServer,
-} from 'routing-controllers'
+import { createExpressServer } from 'routing-controllers'
 import * as express from 'express'
 import 'reflect-metadata'
-import { config } from './config';
+import { config } from './config'
 const compression = require('compression')
 
 var app: express.Express = createExpressServer(config)
