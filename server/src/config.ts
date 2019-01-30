@@ -3,7 +3,7 @@ import { LoginController } from './Controllers/LoginController'
 import { RoutingControllersOptions } from 'routing-controllers'
 import { authorizationChecker } from './auth'
 
-var dev = process.argv[2] === 'dev'
+var dev = process.argv[3] === 'dev'
 
 var config: RoutingControllersOptions = {
   cors: dev,

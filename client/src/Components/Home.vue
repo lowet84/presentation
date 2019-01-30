@@ -31,5 +31,4 @@ export default class extends Vue {
 
 <style>
 @import url('../../node_modules/reveal.js/css/reveal.css');
-@import url('../../node_modules/reveal.js/css/theme/black.css');
 </style>
