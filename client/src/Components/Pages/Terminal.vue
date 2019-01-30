@@ -1,8 +1,6 @@
 <template>
   <section>
     <div>{{typeText}}</div>
-    <div v-if="web">WEB!!!!</div>
-    <slot></slot>
   </section>
 </template>
 

@@ -1,13 +1,8 @@
 <template>
   <div class="reveal">
     <div class="slides">
-      <section>Single Horizontal Slide</section>
-      <section>
-        <section>Vertical Slide 1</section>
-        <terminal type="side1" :web="true">
-          <div>Content</div>
-        </terminal>
-      </section>
+      <page></page>
+      <terminal></terminal>
     </div>
   </div>
 </template>
@@ -31,4 +26,36 @@ export default class extends Vue {
 
 <style>
 @import url('../../node_modules/reveal.js/css/reveal.css');
+h1 {
+  font-size: 3.5em !important;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}
+h2 {
+  font-size: 3em !important;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}
+h3 {
+  font-size: 2.5em !important;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}
+h4 {
+  font-size: 2em !important;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}
+h5 {
+  font-size: 1.5em !important;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+}
+body {
+  font-size: 2rem;
+  font-family: 'Helvetica' !important;
+}
+.controls-arrow{
+  color:rgb(189, 189, 189) !important;
+}
 </style>

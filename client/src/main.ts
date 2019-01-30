@@ -53,8 +53,11 @@ Vue.use(Vuetify, {
 import 'vuetify/src/stylus/app.styl'
 import ServiceBase from './service/ServiceBase'
 
-import Terminal from './Components/Terminal.vue'
+import Terminal from './Components/Pages/Terminal.vue'
 Vue.component('terminal', Terminal)
+
+import Page from './Components/Pages/Page.vue'
+Vue.component('page', Page)
 
 // @ts-ignore
 ServiceBase.init(window.url)
