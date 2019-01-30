@@ -5,7 +5,8 @@ import {
   Get,
   Post,
   Put,
-  Delete
+  Delete,
+  Authorized
 } from 'routing-controllers'
 const uuidv1 = require('uuid/v1')
 
@@ -16,6 +17,12 @@ export class LoginController {
 
   constructor() {
     this.password = process.argv[3]
+  }
+
+  @Authorized()
+  @Get('/')
+  isLoggedIn(): boolean {
+    return true
   }
 
   @Post('/:password')

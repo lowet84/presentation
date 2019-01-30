@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router'
 import Vuex from 'vuex'
 
-import counter from './store/Counter';
+import counter from './store/Counter'
 import authentication from './store/Authentication'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {},
@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     counter,
     authentication
   }
-});
+})
 
 // @ts-ignore
 import Vuetify from 'vuetify/lib/components/Vuetify'
@@ -51,7 +51,10 @@ Vue.use(Vuetify, {
 })
 
 import 'vuetify/src/stylus/app.styl'
-import ServiceBase from './service/ServiceBase';
+import ServiceBase from './service/ServiceBase'
+
+import Terminal from './Components/Terminal.vue'
+Vue.component('terminal', Terminal)
 
 // @ts-ignore
 ServiceBase.init(window.url)

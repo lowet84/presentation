@@ -4,7 +4,9 @@
       <section>Single Horizontal Slide</section>
       <section>
         <section>Vertical Slide 1</section>
-        <section>Vertical Slide 2</section>
+        <terminal type="side1" :web="true">
+          <div>Content</div>
+        </terminal>
       </section>
     </div>
   </div>
@@ -12,18 +14,16 @@
 
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
-import Reveal from 'reveal.js/js/reveal'
+import Reveal from '../reveal'
 
 @Component
 export default class extends Vue {
-
   mounted() {
-    var i = Reveal.initialized
     Reveal.initialize()
   }
 
   @Watch('$route.path')
-  onRouteChanged(val: string, oldVal: string) { 
+  onRouteChanged(val: string, oldVal: string) {
     console.log('route changed')
   }
 }

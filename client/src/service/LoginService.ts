@@ -10,4 +10,9 @@ export default class LoginService extends ServiceBase {
     if (result.token) return result.token
     return undefined
   }
+
+  async isLoggedIn(){
+    var result = await this.get('login')
+    return result
+  }
 }

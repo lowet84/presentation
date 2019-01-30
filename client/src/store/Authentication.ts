@@ -1,18 +1,19 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import LoginService from '../service/LoginService'
-import TestService from '../service/TestService'
 import ServiceBase from '../service/ServiceBase'
 
 @Module({ namespaced: true })
 export default class Authentication extends VuexModule {
   loginService = new LoginService()
-  testService = new TestService()
-  tokenString = localStorage.getItem('token') || undefined
+  tokenState = true
 
   @Mutation setToken(tokenString: string) {
-    this.tokenString = tokenString
-    ServiceBase.token = tokenString
+    this.tokenState = !!tokenString
     localStorage.setItem('token', tokenString)
+  }
+
+  @Mutation setTokenState(tokenState: boolean) {
+    this.tokenState = tokenState
   }
 
   @Action({ commit: 'setToken' })
@@ -21,16 +22,16 @@ export default class Authentication extends VuexModule {
     return token
   }
 
-  @Action
-  async test() {
-    var result = await this.testService.test()
-  }
+  @Action({ commit: 'setTokenState' })
+  async isLoggedIn() {
 
-  get token() {
-    return this.tokenString
+    if (!(await this.loginService.isLoggedIn())) {
+      return false
+    }
+    return true
   }
 
   get loginDialog() {
-    return !this.tokenString
+    return !this.tokenState
   }
 }

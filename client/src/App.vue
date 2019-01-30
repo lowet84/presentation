@@ -42,17 +42,25 @@ export default class extends Vue {
   password = ''
   wrong = false
 
-  async tryLogin(){
-    if(!await this.login(this.password)) this.wrong = true
+  async tryLogin() {
+    if (!(await this.login(this.password))) this.wrong = true
   }
 
+  mounted() {
+    this.isLoggedIn()
+  }
+
+  @authentication.Action isLoggedIn
   @authentication.Getter loginDialog
   @authentication.Action login
 }
 </script>
 
 <style lang="css">
-.wrongpw{
+.wrongpw {
   color: red;
+}
+::-webkit-scrollbar { 
+    display: none; 
 }
 </style>
