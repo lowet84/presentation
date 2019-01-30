@@ -1,5 +1,4 @@
 import ServiceBase from './ServiceBase'
-import urljoin from 'url-join'
 
 export default class TestService extends ServiceBase {
   async test() {

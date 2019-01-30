@@ -20,7 +20,7 @@ export default abstract class ServiceBase {
       }
     })
       .then(response => response.json())
-      .catch(err => console.log(err))
+      .catch(err => err)
     return result
   }
 

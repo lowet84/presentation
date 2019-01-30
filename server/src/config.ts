@@ -1,16 +1,14 @@
 import { TestController } from './controllers/TestController'
 import { LoginController } from './Controllers/LoginController'
-import { RoutingControllersOptions, Action } from 'routing-controllers'
+import { RoutingControllersOptions } from 'routing-controllers'
+import { authorizationChecker } from './auth'
 
 var dev = process.argv[2] === 'dev'
 
 var config: RoutingControllersOptions = {
   cors: dev,
   controllers: [TestController, LoginController],
-  authorizationChecker: async (action: Action, roles: string[]) => {
-    const token = action.request.headers['authorization']
-    return token === `Bearer ${LoginController.token}`
-  }
+  authorizationChecker
 }
 
 export { config }

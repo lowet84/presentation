@@ -1,21 +1,35 @@
 <template>
-  <div id="app">
-    <v-btn color="info" @click="incr()">{{value}}</v-btn>
+  <div class="reveal">
+    <div class="slides">
+      <section>Single Horizontal Slide</section>
+      <section>
+        <section>Vertical Slide 1</section>
+        <section>Vertical Slide 2</section>
+      </section>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
-const counter = namespace('counter')
+import { Vue, Component, Watch } from 'vue-property-decorator'
+import Reveal from 'reveal.js/js/reveal'
 
 @Component
 export default class extends Vue {
-  @counter.Getter value
-  @counter.Action incr
+
+  mounted() {
+    var i = Reveal.initialized
+    Reveal.initialize()
+  }
+
+  @Watch('$route.path')
+  onRouteChanged(val: string, oldVal: string) { 
+    console.log('route changed')
+  }
 }
 </script>
 
-<style lang="css">
+<style>
+@import url('../../node_modules/reveal.js/css/reveal.css');
+@import url('../../node_modules/reveal.js/css/theme/black.css');
 </style>

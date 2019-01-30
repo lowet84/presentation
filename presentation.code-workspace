@@ -12,7 +12,6 @@
     "prettier.semi": false,
     "files.exclude": {
       "**/.git": true,
-      "**/node_modules": true,
       "**/web": true,
       "**/out": true,
       "**/.cache": true,

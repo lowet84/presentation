@@ -25,13 +25,25 @@ import VGrid from 'vuetify/lib/components/VGrid'
 // @ts-ignore
 import VBtn from 'vuetify/lib/components/VBtn'
 // @ts-ignore
+import VCard from 'vuetify/lib/components/VCard'
+// @ts-ignore
+import VForm from 'vuetify/lib/components/VForm'
+// @ts-ignore
+import VDialog from 'vuetify/lib/components/VDialog'
+// @ts-ignore
+import VTextField from 'vuetify/lib/components/VTextField'
+// @ts-ignore
 import { Ripple } from 'vuetify/lib/directives'
 
 Vue.use(Vuetify, {
   components: {
     VApp,
     VGrid,
-    VBtn
+    VBtn,
+    VCard,
+    VForm,
+    VDialog,
+    VTextField
   },
   directives: {
     Ripple

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './Components/Home.vue'
-import Login from './Components/Login.vue'
+import Setup from './Components/Setup.vue'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/login',
-      name: 'login',
-      component: Login
+      path: '/setup',
+      name: 'setup',
+      component: Setup
     },
     {
       path: '*',
