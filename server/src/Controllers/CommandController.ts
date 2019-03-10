@@ -68,10 +68,11 @@ export class CommandController {
   ) {
     var item = this.commands[name][index]
     var results: any[] = []
-    item.commands.forEach(async command => {
+    for (let index = 0; index < item.commands.length; index++) {
+      const command = item.commands[index];
       var result = await exec(command.command)
       results.push(result)
-    })
+    }
     return JSON.stringify(results)
   }
 }
