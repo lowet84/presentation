@@ -76,7 +76,7 @@ export class CommandController {
       var { stdout, stderr } = await exec(command.command)
       var lines = stdout.split(/\r?\n/) || []
       for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
-        var line = lines[index] || ''
+        var line = lines[lineIndex] || ''
         console.log(line)
         if (line.length > 0) results.push(line)
       }
