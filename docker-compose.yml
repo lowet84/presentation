@@ -1,0 +1,12 @@
+version: '3'
+services:
+  presentation:
+    build: .
+    networks: 
+      - kubeadm-dind-net
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  kubeadm-dind-net:
+    external: true
