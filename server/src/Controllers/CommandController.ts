@@ -55,6 +55,26 @@ export class CommandController {
           },
           { command: 'cd example1 && cat Dockerfile', visible: true }
         ]
+      },
+      {
+        displayName: 'docker build -t docker-demo .',
+        commands: [
+          {
+            command:
+              'cd example1 && docker build -t docker-demo .',
+            visible: false
+          }
+        ]
+      },
+      {
+        displayName: 'docker run docker-demo',
+        commands: [
+          {
+            command:
+              'cd example1 && docker run docker-demo',
+            visible: false
+          }
+        ]
       }
     ]
   }
