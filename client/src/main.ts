@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import Vuex from 'vuex'
 
-import counter from './store/Counter'
+import command from './store/CommandStore'
 import authentication from './store/Authentication'
 
 Vue.use(Vuex)
@@ -11,7 +11,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {},
   modules: {
-    counter,
+    command,
     authentication
   }
 })
