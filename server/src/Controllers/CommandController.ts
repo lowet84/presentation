@@ -8,7 +8,8 @@ import {
   Delete,
   Authorized
 } from 'routing-controllers'
-const exec = require('await-exec')
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 @JsonController('/command')
 export class CommandController {
@@ -70,8 +71,8 @@ export class CommandController {
     var results: any[] = []
     for (let index = 0; index < item.commands.length; index++) {
       const command = item.commands[index];
-      var result = await exec(command.command)
-      results.push(result)
+      const { stdout, stderr } = await exec('find . -type f | wc -l', { shell: true });
+      results.push(stdout)
     }
     return JSON.stringify(results)
   }
