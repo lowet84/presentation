@@ -11,6 +11,17 @@ import {
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
+var fileLines = (value: string, fileName: string): string => {
+  var lines = value.split(/\r?\n/)
+  var ret = ''
+  lines.forEach((line, index) => {
+    ret += `echo ${line} ${index === 0 ? '>' : '>>'} ${fileName} ${
+      index === lines.length - 1 ? '' : '&& '
+    }`
+  })
+  return ret
+}
+
 @JsonController('/command')
 export class CommandController {
   commands: { [index: string]: Action[] } = {
@@ -35,22 +46,16 @@ export class CommandController {
         displayName: 'cat Dockerfile',
         commands: [
           {
-            command:
-              'cd example1 && echo "FROM node:11-alpine" > Dockerfile ',
-            visible: false
-          },
-          {
-            command: 'cd example1 && echo "RUN mkdir /app" >> Dockerfile ',
-            visible: false
-          },
-          {
-            command:
-              'cd example1 && echo "ADD index.js /app/index.js" >> Dockerfile ',
-            visible: false
-          },
-          {
-            command:
-              'cd example1 && echo "CMD node /app/index.js" >> Dockerfile ',
+            command: `cd example1 && ${fileLines(
+              `
+FROM node:11-alpine
+RUN mkdir /app
+ADD index.js /app/index.js
+CMD node /app/index.js
+              `,
+              'Dockerfile'
+            )} `,
+            //`cd example1 && echo "FROM node:11-alpine" > Dockerfile `,
             visible: false
           },
           { command: 'cd example1 && cat Dockerfile', visible: true }
@@ -60,8 +65,7 @@ export class CommandController {
         displayName: 'docker build -t docker-demo .',
         commands: [
           {
-            command:
-              'cd example1 && docker build -t docker-demo .',
+            command: 'cd example1 && docker build -t docker-demo .',
             visible: false
           }
         ]
