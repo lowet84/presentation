@@ -71,12 +71,13 @@ export class CommandController {
     var item = this.commands[name][index]
     var results: any[] = []
     for (let index = 0; index < item.commands.length; index++) {
-      const command = item.commands[index]
+      var command = item.commands[index]
       console.log(command.command)
-      const { stdout, stderr } = await exec(command.command)
+      var { stdout, stderr } = await exec(command.command)
       var lines = stdout.split(/\n/)
       for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
-        const line = lines[index]
+        var line = lines[index]
+        console.log(line)
         if (line.length > 0) results.push(line)
       }
     }
