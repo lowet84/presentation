@@ -8,8 +8,8 @@ import {
   Delete,
   Authorized
 } from 'routing-controllers'
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
 @JsonController('/command')
 export class CommandController {
@@ -19,37 +19,41 @@ export class CommandController {
         displayName: 'cat index.js',
         commands: [
           { command: 'mkdir -p example1', visible: false },
-          { command: 'cd example1', visible: false },
           {
             command:
-              "echo \"console.log('Running demo-application on host: ' + require('fs').readFileSync('/etc/hostname','utf8'))\" >> index.js",
+              "cd example1 && echo \"console.log('Running demo-application on host: ' + require('fs').readFileSync('/etc/hostname','utf8'))\" >> index.js",
             visible: false
           },
-          { command: 'cat index.js', visible: true }
+          { command: 'cd example1 && cat index.js', visible: true }
         ]
       },
       {
         displayName: 'node index.js',
-        commands: [
-          { command: 'cd example1', visible: false },
-          { command: 'node index.js', visible: true }
-        ]
+        commands: [{ command: 'cd example1 && node index.js', visible: true }]
       },
       {
         displayName: 'cat Dockerfile',
         commands: [
-          { command: 'cd example1', visible: false },
           {
-            command: 'echo "FROM arm32v7/node:10-slim" > Dockerfile ',
+            command:
+              'cd example1 && echo "FROM arm32v7/node:10-slim" > Dockerfile ',
             visible: false
           },
-          { command: 'echo "RUN mkdir /app" >> Dockerfile ', visible: false },
           {
-            command: 'ADD index.js /app/index.js" >> Dockerfile ',
+            command: 'cd example1 && echo "RUN mkdir /app" >> Dockerfile ',
             visible: false
           },
-          { command: 'CMD node /app/index.js" >> Dockerfile ', visible: false },
-          { command: 'cat Dockerfile', visible: true }
+          {
+            command:
+              'cd example1 && echo "ADD index.js /app/index.js" >> Dockerfile ',
+            visible: false
+          },
+          {
+            command:
+              'cd example1 && echo "CMD node /app/index.js" >> Dockerfile ',
+            visible: false
+          },
+          { command: 'cd example1 && cat Dockerfile', visible: true }
         ]
       }
     ]
@@ -63,16 +67,13 @@ export class CommandController {
 
   // @Authorized()
   @Post('/:name/:index')
-  async getOne(
-    @Param('name') name: string,
-    @Param('index') index: number
-  ) {
+  async getOne(@Param('name') name: string, @Param('index') index: number) {
     var item = this.commands[name][index]
     var results: any[] = []
     for (let index = 0; index < item.commands.length; index++) {
-      const command = item.commands[index];
+      const command = item.commands[index]
       console.log(command.command)
-      const { stdout, stderr } = await exec(command.command);
+      const { stdout, stderr } = await exec(command.command)
       results.push(stdout)
     }
     return JSON.stringify(results)
