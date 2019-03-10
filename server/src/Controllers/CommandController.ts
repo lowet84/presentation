@@ -71,7 +71,7 @@ export class CommandController {
     var results: any[] = []
     for (let index = 0; index < item.commands.length; index++) {
       const command = item.commands[index];
-      const { stdout, stderr } = await exec('find . -type f | wc -l', { shell: true });
+      const { stdout, stderr } = await exec(command, { shell: true });
       results.push(stdout)
     }
     return JSON.stringify(results)
