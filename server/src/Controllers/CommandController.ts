@@ -12,13 +12,12 @@ const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
 var fileLines = (value: string, fileName: string): string => {
-  var lines = value.split(/\r?\n/)
+  var lines = value.split(/\r?\n/).filter(d => d.trim().length > 0)
   var ret = ''
   lines.forEach((line, index) => {
-    if (line.trim().length > 0)
-      ret += `echo ${line} ${index === 0 ? '>' : '>>'} ${fileName} ${
-        index === lines.length - 1 ? '' : '&& '
-      }`
+    ret += `echo ${line} ${index === 0 ? '>' : '>>'} ${fileName} ${
+      index === lines.length - 1 ? '' : '&& '
+    }`
   })
   return ret
 }
