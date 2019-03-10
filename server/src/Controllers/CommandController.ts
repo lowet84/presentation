@@ -36,7 +36,7 @@ export class CommandController {
         commands: [
           {
             command:
-              'cd example1 && echo "FROM node" > Dockerfile ',
+              'cd example1 && echo "FROM node:11-alpine" > Dockerfile ',
             visible: false
           },
           {
