@@ -6,8 +6,13 @@ export default class LoginService extends ServiceBase {
     var url = urljoin(ServiceBase.url, 'login', password)
     var result: LoginResponse = await fetch(url, { method: 'POST' })
       .then(response => response.json())
-      .catch(err => console.log(err))
+      .catch(err => err)
     if (result.token) return result.token
     return undefined
+  }
+
+  async isLoggedIn(){
+    var result = await this.get('login')
+    return result
   }
 }

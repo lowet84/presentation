@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router'
 import Vuex from 'vuex'
 
-import counter from './store/Counter';
+import counter from './store/Counter'
 import authentication from './store/Authentication'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {},
@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     counter,
     authentication
   }
-});
+})
 
 // @ts-ignore
 import Vuetify from 'vuetify/lib/components/Vuetify'
@@ -25,13 +25,25 @@ import VGrid from 'vuetify/lib/components/VGrid'
 // @ts-ignore
 import VBtn from 'vuetify/lib/components/VBtn'
 // @ts-ignore
+import VCard from 'vuetify/lib/components/VCard'
+// @ts-ignore
+import VForm from 'vuetify/lib/components/VForm'
+// @ts-ignore
+import VDialog from 'vuetify/lib/components/VDialog'
+// @ts-ignore
+import VTextField from 'vuetify/lib/components/VTextField'
+// @ts-ignore
 import { Ripple } from 'vuetify/lib/directives'
 
 Vue.use(Vuetify, {
   components: {
     VApp,
     VGrid,
-    VBtn
+    VBtn,
+    VCard,
+    VForm,
+    VDialog,
+    VTextField
   },
   directives: {
     Ripple
@@ -39,7 +51,13 @@ Vue.use(Vuetify, {
 })
 
 import 'vuetify/src/stylus/app.styl'
-import ServiceBase from './service/ServiceBase';
+import ServiceBase from './service/ServiceBase'
+
+import Terminal from './Components/Pages/Terminal.vue'
+Vue.component('terminal', Terminal)
+
+import Page from './Components/Pages/Page.vue'
+Vue.component('page', Page)
 
 // @ts-ignore
 ServiceBase.init(window.url)
