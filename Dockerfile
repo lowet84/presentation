@@ -9,3 +9,4 @@ RUN npm install
 ADD server /app/server
 RUN npm run build
 WORKDIR /app/server/dist
+CMD dockerd-entrypoint.sh & node index.js
