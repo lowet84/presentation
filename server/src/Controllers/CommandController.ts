@@ -36,7 +36,7 @@ export class CommandController {
         commands: [
           {
             command:
-              'cd example1 && echo "FROM arm32v7/node:10-slim" > Dockerfile ',
+              'cd example1 && echo "FROM node" > Dockerfile ',
             visible: false
           },
           {
