@@ -4,8 +4,10 @@ services:
     build: .
     networks: 
       - kubeadm-dind-net
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    privileged: true
+    ports:
+      - 3000:3000
+    hostname: server
 
 networks:
   kubeadm-dind-net:
