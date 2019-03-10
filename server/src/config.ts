@@ -1,4 +1,4 @@
-import { CommandController } from './controllers/CommandController'
+import { CommandController } from './Controllers/CommandController'
 import { LoginController } from './Controllers/LoginController'
 import { RoutingControllersOptions } from 'routing-controllers'
 import { authorizationChecker } from './auth'
