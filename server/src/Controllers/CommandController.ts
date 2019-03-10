@@ -71,7 +71,7 @@ export class CommandController {
         commands: [
           {
             command:
-              'cd example1 && docker run docker-demo',
+              'cd example1 && docker run --hostname=container docker-demo',
             visible: false
           }
         ]
