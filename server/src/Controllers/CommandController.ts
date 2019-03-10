@@ -74,7 +74,8 @@ export class CommandController {
       const command = item.commands[index]
       console.log(command.command)
       const { stdout, stderr } = await exec(command.command)
-      var lines = stdout.split(/\n/).filter((d: string) => d.length > 0)
+      var split = stdout.split(/\n/)
+      var lines = split.filter((d: string) => d.length > 0)
       for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
         const line = lines[index]
         results.push(line)
