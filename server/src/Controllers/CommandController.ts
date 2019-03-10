@@ -74,8 +74,8 @@ export class CommandController {
       const command = item.commands[index]
       console.log(command.command)
       const { stdout, stderr } = await exec(command.command)
-      results.push(stdout)
+      if (stdout.length > 0) results.push(stdout)
     }
-    return results.filter(d=>d.length>0)
+    return results
   }
 }
