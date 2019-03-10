@@ -76,6 +76,6 @@ export class CommandController {
       const { stdout, stderr } = await exec(command.command)
       results.push(stdout)
     }
-    return JSON.stringify(results)
+    return results
   }
 }
