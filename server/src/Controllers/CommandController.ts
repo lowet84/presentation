@@ -15,9 +15,10 @@ var fileLines = (value: string, fileName: string): string => {
   var lines = value.split(/\r?\n/)
   var ret = ''
   lines.forEach((line, index) => {
-    ret += `echo ${line} ${index === 0 ? '>' : '>>'} ${fileName} ${
-      index === lines.length - 1 ? '' : '&& '
-    }`
+    if (line.trim().length > 0)
+      ret += `echo ${line} ${index === 0 ? '>' : '>>'} ${fileName} ${
+        index === lines.length - 1 ? '' : '&& '
+      }`
   })
   return ret
 }
