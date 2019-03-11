@@ -34,6 +34,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import Reveal from './reveal'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
 const authentication = namespace('authentication')
 const slides = namespace('slides')
@@ -46,7 +47,8 @@ export default class extends Vue {
   async tryLogin() {
     if (!(await this.login(this.password))) this.wrong = true
     else{
-      this.readSlides()
+      await this.readSlides()
+      Reveal.initialize()
     }
   }
 
@@ -58,7 +60,8 @@ export default class extends Vue {
   async load(){
     await this.isLoggedIn()
     if(!this.loginDialog){
-      this.readSlides()
+      await this.readSlides()
+      Reveal.initialize()
     }
   }
 

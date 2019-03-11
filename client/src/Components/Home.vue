@@ -1,26 +1,25 @@
 <template>
   <div class="reveal">
     <div class="slides">
-      <page></page>
-      <terminal></terminal>
-      {{slides}}
+      <template v-for="(slide,slideIndex) in slides">
+        <section :key="`slide${slideIndex}`">
+          <template v-for="(section, sectionIndex) in slide.sections">
+            <section :key="`section${sectionIndex}`">{{section}}</section>
+          </template>
+        </section>
+      </template>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
-import Reveal from '../reveal'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
 const slides = namespace('slides')
 
 @Component
 export default class extends Vue {
   @slides.Getter slides
-
-  mounted() {
-    Reveal.initialize()
-  }
 
   @Watch('$route.path')
   onRouteChanged(val: string, oldVal: string) {
@@ -60,7 +59,7 @@ body {
   font-size: 2rem;
   font-family: 'Helvetica' !important;
 }
-.controls-arrow{
-  color:rgb(189, 189, 189) !important;
+.controls-arrow {
+  color: rgb(189, 189, 189) !important;
 }
 </style>

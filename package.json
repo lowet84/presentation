@@ -1,0 +1,23 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "concurrently \"cd client && npm install\" \"cd server && npm install\" \"cd proxy && npm install\" ",
+    "start": "concurrently \"cd client && npm start\" \"cd server && npm start\" \"cd proxy && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lowet84/presentation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lowet84/presentation/issues"
+  },
+  "homepage": "https://github.com/lowet84/presentation#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
