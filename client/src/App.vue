@@ -2,7 +2,7 @@
   <div id="app">
     <v-app dark>
       <v-content>
-        <router-view></router-view>
+        <home/>
       </v-content>
     </v-app>
     <v-dialog v-model="loginDialog" max-width="20em" persistent>

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
 import Vuex from 'vuex'
 
 import command from './store/CommandStore'
@@ -59,11 +58,12 @@ Vue.component('terminal', Terminal)
 import Page from './Components/Pages/Page.vue'
 Vue.component('page', Page)
 
-// @ts-ignore
-ServiceBase.init(window.url)
+import Home from './Components/Home.vue'
+Vue.component('home', Home)
+
+ServiceBase.init('/')
 new Vue({
   el: '#app',
-  router,
   store,
   render: h => h(App)
 })

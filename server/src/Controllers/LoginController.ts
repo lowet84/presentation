@@ -10,7 +10,7 @@ import {
 } from 'routing-controllers'
 const uuidv1 = require('uuid/v1')
 
-@JsonController('/login')
+@JsonController('/api/login')
 export class LoginController {
   password: string
   static token: string

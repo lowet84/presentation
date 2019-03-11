@@ -22,7 +22,7 @@ var fileLines = (value: string, fileName: string): string => {
   return ret
 }
 
-@JsonController('/command')
+@JsonController('/api/command')
 export class CommandController {
   commands: { [index: string]: Action[] } = {
     dockerBuild: [
@@ -55,7 +55,6 @@ CMD node /app/index.js
               `,
               'Dockerfile'
             )} `,
-            //`cd example1 && echo "FROM node:11-alpine" > Dockerfile `,
             visible: false
           },
           { command: 'cd example1 && cat Dockerfile', visible: true }
