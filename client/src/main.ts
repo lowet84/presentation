@@ -61,7 +61,7 @@ Vue.component('page', Page)
 import Home from './Components/Home.vue'
 Vue.component('home', Home)
 
-ServiceBase.init('/')
+ServiceBase.init('/api/')
 new Vue({
   el: '#app',
   store,

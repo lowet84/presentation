@@ -11,8 +11,8 @@ export default class LoginService extends ServiceBase {
     return undefined
   }
 
-  async isLoggedIn(){
+  async isLoggedIn(): Promise<boolean>{
     var result = await this.get('login')
-    return result
+    return !!result
   }
 }

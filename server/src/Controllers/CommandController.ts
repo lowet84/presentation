@@ -22,7 +22,7 @@ var fileLines = (value: string, fileName: string): string => {
   return ret
 }
 
-@JsonController('/api/command')
+@JsonController('/command')
 export class CommandController {
   commands: { [index: string]: Action[] } = {
     dockerBuild: [

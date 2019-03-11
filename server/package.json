@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "debug": "tsc && node out/generator.js && node --inspect out/index.js dummy dev",
-    "start": "tsc && concurrently \"tsc --watch\" \"node out/generator.js && node --inspect out/index.js dummy dev\"",
+    "debug": "tsc && node out/generator.js && node --inspect out/index.js dummy",
+    "start": "tsc && concurrently \"tsc --watch\" \"node out/generator.js && node --inspect out/index.js dummy\"",
     "generate": "tsc && node out/generator.js",
     "build": "parcel build --target=node --bundle-node-modules --no-source-maps src/index.ts"
   },
@@ -14,7 +14,6 @@
   "dependencies": {
     "@types/express": "^4.16.1",
     "compression": "^1.7.3",
-    "cors": "^2.8.5",
     "express": "^4.16.4",
     "routing-controllers": "^0.7.7",
     "routing-controllers-openapi": "^1.4.2",
@@ -23,7 +22,6 @@
   "devDependencies": {
     "@types/node": "^10.12.18",
     "concurrently": "^4.1.0",
-    "kcors": "^2.2.2",
     "koa-bodyparser": "^4.2.1",
     "nodemon": "^1.18.9",
     "parcel": "^1.11.0",

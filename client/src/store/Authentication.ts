@@ -1,6 +1,5 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import LoginService from '../service/LoginService'
-import ServiceBase from '../service/ServiceBase'
 
 @Module({ namespaced: true })
 export default class Authentication extends VuexModule {
@@ -24,11 +23,11 @@ export default class Authentication extends VuexModule {
 
   @Action({ commit: 'setTokenState' })
   async isLoggedIn() {
-
-    if (!(await this.loginService.isLoggedIn())) {
+    try {
+      return await this.loginService.isLoggedIn()
+    } catch {
       return false
     }
-    return true
   }
 
   get loginDialog() {
