@@ -4,7 +4,11 @@
       <template v-for="(slide,slideIndex) in slides">
         <section :key="`slide${slideIndex}`">
           <template v-for="(section, sectionIndex) in slide.sections">
-            <section :key="`section${sectionIndex}`">{{section}}</section>
+            <section :key="`section${sectionIndex}`">
+              <template v-for="(item, itemIndex) in section.items">
+                <div :key="`item${itemIndex}`">{{item.value}}</div>
+              </template>
+            </section>
           </template>
         </section>
       </template>
@@ -27,7 +31,7 @@ export default class extends Vue {
   }
 }
 </script>
-
+ 
 <style>
 @import url('../../node_modules/reveal.js/css/reveal.css');
 h1 {

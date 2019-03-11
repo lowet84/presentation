@@ -54,12 +54,6 @@ Vue.use(Vuetify, {
 import 'vuetify/src/stylus/app.styl'
 import ServiceBase from './service/ServiceBase'
 
-import Terminal from './Components/Pages/Terminal.vue'
-Vue.component('terminal', Terminal)
-
-import Page from './Components/Pages/Page.vue'
-Vue.component('page', Page)
-
 import Home from './Components/Home.vue'
 Vue.component('home', Home)
 
