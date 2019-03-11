@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 
 import command from './store/CommandStore'
 import authentication from './store/Authentication'
+import slides from './store/SlidesStore'
 
 Vue.use(Vuex)
 
@@ -11,7 +12,8 @@ const store = new Vuex.Store({
   state: {},
   modules: {
     command,
-    authentication
+    authentication,
+    slides
   }
 })
 

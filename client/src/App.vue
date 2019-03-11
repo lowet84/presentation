@@ -36,6 +36,7 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
 const authentication = namespace('authentication')
+const slides = namespace('slides')
 
 @Component
 export default class extends Vue {
@@ -44,15 +45,27 @@ export default class extends Vue {
 
   async tryLogin() {
     if (!(await this.login(this.password))) this.wrong = true
+    else{
+      this.readSlides()
+    }
   }
 
   mounted() {
-    this.isLoggedIn()
+    this.load()
+    
+  }
+
+  async load(){
+    await this.isLoggedIn()
+    if(!this.loginDialog){
+      this.readSlides()
+    }
   }
 
   @authentication.Action isLoggedIn
   @authentication.Getter loginDialog
   @authentication.Action login
+  @slides.Action readSlides
 }
 </script>
 

@@ -3,6 +3,7 @@
     <div class="slides">
       <page></page>
       <terminal></terminal>
+      {{slides}}
     </div>
   </div>
 </template>
@@ -10,9 +11,13 @@
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
 import Reveal from '../reveal'
+import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
+const slides = namespace('slides')
 
 @Component
 export default class extends Vue {
+  @slides.Getter slides
+
   mounted() {
     Reveal.initialize()
   }
