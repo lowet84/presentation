@@ -6,7 +6,13 @@
           <template v-for="(section, sectionIndex) in slide.sections">
             <section :key="`section${sectionIndex}`">
               <template v-for="(item, itemIndex) in section.items">
-                <div :key="`item${itemIndex}`">{{item.value}}</div>
+                <h1 v-if="item.type==='header1'" :key="`item${itemIndex}`">{{item.value}}</h1>
+                <h2 v-else-if="item.type==='header2'" :key="`item${itemIndex}`">{{item.value}}</h2>
+                <h3 v-else-if="item.type==='header3'" :key="`item${itemIndex}`">{{item.value}}</h3>
+                <h4 v-else-if="item.type==='header4'" :key="`item${itemIndex}`">{{item.value}}</h4>
+                <h5 v-else-if="item.type==='header5'" :key="`item${itemIndex}`">{{item.value}}</h5>
+                <h6 v-else-if="item.type==='header6'" :key="`item${itemIndex}`">{{item.value}}</h6>
+                <div v-else-if="item.type==='text'" :key="`item${itemIndex}`">{{item.value}}</div>
               </template>
             </section>
           </template>
