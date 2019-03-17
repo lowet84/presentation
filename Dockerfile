@@ -13,3 +13,5 @@ RUN npm install
 WORKDIR /app
 RUN npm install
 RUN npm run build
+WORKDIR /app/server/dist
+CMD node index.js
