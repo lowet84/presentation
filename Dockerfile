@@ -11,6 +11,7 @@ RUN npm run build
 ADD client /app/client
 WORKDIR /app/client
 RUN npm install
+RUN npm run build
 RUN mv dist /app/server/dist/web
 WORKDIR /app/server/dist
 RUN mv /app/server/images /app/server/dist/images
