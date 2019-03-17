@@ -77,8 +77,8 @@ var dockerPullAndRun: Action[] = [
     ]
   },
   {
-    displayName: 'curl http://localhost:3000/',
-    commands: [{ command: '', visible: true }]
+    displayName: 'curl http://localhost:3000',
+    commands: [{ command: 'curl http://localhost:3000', visible: true }]
   },
   {
     displayName:
@@ -94,6 +94,10 @@ var dockerPullAndRun: Action[] = [
         visible: true
       }
     ]
+  },
+  {
+    displayName: 'curl http://localhost:3000',
+    commands: [{ command: 'curl http://localhost:3000', visible: true }]
   }
 ]
 
