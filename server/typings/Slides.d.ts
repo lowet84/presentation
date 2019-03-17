@@ -4,11 +4,12 @@ declare interface Slides {
 
 declare interface Section {
   items: Item[]
+  demo?: boolean
 }
 
 declare interface Item {
   value: string
   type: string
   fragment?: boolean
-  actions?: { items: Action[]; id: string }
+  actions?: Action[]
 }

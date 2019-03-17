@@ -7,7 +7,11 @@ var intro: Slides = {
       ]
     },
     {
-      items: [{ type: 'text', value: 'This guy?' }]
+      items: [
+        { type: 'text', value: 'This guy?' },
+        { type: 'imageS', value: 'ego.jpg'},
+        { type: 'imageBar', value: 'dotnet.svg;docker.svg;k8s.png;avega.png', fragment: true },
+    ]
     }
   ]
 }

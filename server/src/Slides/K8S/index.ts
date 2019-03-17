@@ -1,5 +1,9 @@
 import { intro } from './intro'
+import { docker } from './docker'
+import { dockerBuild } from './dockerActions'
 
-var slides = [intro]
+var commands: { [index: string]: Action[] } = { dockerBuild }
 
-export { slides }
+var slides = [intro, docker]
+
+export { slides, commands }
