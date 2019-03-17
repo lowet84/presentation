@@ -14,6 +14,14 @@ app.use(
   })
 )
 
+app.use(
+  '/images',
+  proxy({
+    target: 'http://localhost:3000',
+    changeOrigin: true
+  })
+)
+
 app.use('/', proxy('http://localhost:1234'))
 
 app.listen(3800)

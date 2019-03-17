@@ -4,10 +4,11 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "debug": "tsc && node out/generator.js && node --inspect out/index.js dummy",
+    "debug": "tsc && npm run copy && node out/generator.js && node --inspect out/index.js dummy",
     "start": "tsc && concurrently \"tsc --watch\" \"node out/generator.js && nodemon --inspect out/index.js dummy\"",
     "generate": "tsc && node out/generator.js",
-    "build": "parcel build --target=node --bundle-node-modules --no-source-maps src/index.ts"
+    "build": "parcel build --target=node --bundle-node-modules --no-source-maps src/index.ts",
+    "copy": "copyfiles ./web/**/* ./out"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^10.12.18",
     "concurrently": "^4.1.0",
+    "copyfiles": "^2.1.0",
     "koa-bodyparser": "^4.2.1",
     "nodemon": "^1.18.9",
     "parcel": "^1.11.0",
