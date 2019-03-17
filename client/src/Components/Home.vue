@@ -104,6 +104,9 @@ body {
   background: rgb(54, 54, 54) !important;
   margin: 1em !important;
 }
+.image-large{
+  height: 15em;
+}
 .demo{
   background: darkgray;
 }
