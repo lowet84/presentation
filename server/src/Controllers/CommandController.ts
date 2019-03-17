@@ -35,7 +35,7 @@ export class CommandController {
   @Post('/:name/:index')
   async getOne(@Param('name') name: string, @Param('index') index: number) {
     var item = commands[name][index]
-    if (process.env.mode !== 'prod') return item.commands.map(d => d.command)
+    if (process.env.MODE !== 'prod') return item.commands.map(d => d.command)
     var results: any[] = []
     for (let index = 0; index < item.commands.length; index++) {
       var command = item.commands[index]

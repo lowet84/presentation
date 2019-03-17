@@ -16,7 +16,7 @@ export class LoginController {
   static token: string
 
   constructor() {
-    this.password = process.argv[2]
+    this.password = process.env.PASSWORD || process.argv[2]
   }
 
   @Authorized()
