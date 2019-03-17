@@ -8,6 +8,9 @@
     },
     {
       "path": "proxy"
+    },
+    {
+      "path": "demo"
     }
   ],
   "settings": {

@@ -55,4 +55,46 @@ CMD node /app/index.js
   }
 ]
 
-export { dockerBuild }
+var dockerPullAndRun: Action[] = [
+  {
+    displayName: 'docker pull lowet84/k8s2019-port-volume-demo',
+    commands: [
+      { command: 'docker pull lowet84/k8s2019-port-volume-demo', visible: true }
+    ]
+  },
+  {
+    displayName: 'docker run -d -p 3000:3000 lowet84/k8s2019-port-volume-demo',
+    commands: [
+      {
+        command: 'docker rm -f example >/dev/null 2>/dev/null',
+        visible: false
+      },
+      {
+        command:
+          'docker run -d -p 3000:3000 --name example lowet84/k8s2019-port-volume-demo',
+        visible: true
+      }
+    ]
+  },
+  {
+    displayName: 'curl http://localhost:3000/',
+    commands: [{ command: '', visible: true }]
+  },
+  {
+    displayName:
+      'docker run -d -p 3000:3000 -v /etc/hostname:/etc/hostname lowet84/k8s2019-port-volume-demo',
+    commands: [
+      {
+        command: 'docker rm -f example >/dev/null 2>/dev/null',
+        visible: false
+      },
+      {
+        command:
+          'docker run -d -p 3000:3000 -v /etc/hostname:/etc/hostname --name example lowet84/k8s2019-port-volume-demo',
+        visible: true
+      }
+    ]
+  }
+]
+
+export { dockerBuild, dockerPullAndRun }

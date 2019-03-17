@@ -1,8 +1,8 @@
 import { intro } from './intro'
 import { docker } from './docker'
-import { dockerBuild } from './dockerActions'
+import * as allCommands from './dockerActions'
 
-var commands: { [index: string]: Action[] } = { dockerBuild }
+var commands: { [index: string]: Action[] } = { ...allCommands }
 
 var slides = [intro, docker]
 

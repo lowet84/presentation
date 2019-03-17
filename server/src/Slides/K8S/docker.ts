@@ -79,8 +79,17 @@ var docker: Slides = {
         { type: 'text', value: 'Port', fragment: true },
         { type: 'text', value: 'Volume', fragment: true }
       ]
+    },
+    {
+      demo: true,
+      items: [
+        { type: 'header2', value: 'Docker pull & Run' },
+        {
+          type: 'terminalWide',
+          value: 'dockerPullAndRun'
+        }
+      ]
     }
-    // Demo docker 2
   ]
 }
 
