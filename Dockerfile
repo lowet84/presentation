@@ -7,4 +7,5 @@ ADD server /app/server
 ADD client /app/client
 ADD package.json /app/package.json
 RUN npm install
+WORKDIR /app
 RUN npm run build
