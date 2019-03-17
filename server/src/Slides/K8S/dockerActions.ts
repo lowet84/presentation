@@ -66,7 +66,7 @@ var dockerPullAndRun: Action[] = [
     displayName: 'docker run -d -p 3000:3000 lowet84/k8s2019-port-volume-demo',
     commands: [
       {
-        command: 'docker rm -f example',
+        command: 'docker rm -f example >/dev/null 2>/dev/null',
         visible: false
       },
       {
@@ -85,7 +85,7 @@ var dockerPullAndRun: Action[] = [
       'docker run -d -p 3000:3000 -v /etc/hostname:/etc/hostname lowet84/k8s2019-port-volume-demo',
     commands: [
       {
-        command: 'docker rm -f example',
+        command: 'docker rm -f example >/dev/null 2>/dev/null',
         visible: false
       },
       {
