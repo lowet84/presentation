@@ -22,6 +22,7 @@
                 <div v-else-if="item.type==='imageBar'" :key="`item${itemIndex}`">
                   <img v-for="image in item.value.split(';')" :key="image" :src="`images/${image}`" class="image-small" :class="`${item.fragment?'fragment':''}`">
                 </div>
+                <Terminal v-else-if="item.type==='terminalWide'" :key="`item${itemIndex}`"></Terminal>
               </template>
             </section>
           </template>
@@ -34,9 +35,10 @@
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
+import Terminal from './Terminal.vue'
 const slides = namespace('slides')
 
-@Component
+@Component({components:{Terminal}})
 export default class extends Vue {
   @slides.Getter slides
 
