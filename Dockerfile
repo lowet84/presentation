@@ -8,5 +8,10 @@ WORKDIR /app/server
 RUN npm install
 ADD server /app/server
 RUN npm run build
+ADD client /app/client
+WORKDIR /app/client
+RUN npm install
+RUN mv dist /app/server/dist/web
 WORKDIR /app/server/dist
+RUN mv /app/server/images /app/server/dist/images
 CMD dockerd-entrypoint.sh & node index.js
