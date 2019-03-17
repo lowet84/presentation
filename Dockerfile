@@ -6,6 +6,6 @@ RUN apk add --no-cache nodejs-npm docker
 ADD server /app/server
 ADD client /app/client
 ADD package.json /app/package.json
-RUN npm install
 WORKDIR /app
+RUN npm install
 RUN npm run build
