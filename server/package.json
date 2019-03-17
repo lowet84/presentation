@@ -5,10 +5,10 @@
   "main": "src/index.ts",
   "scripts": {
     "debug": "tsc && npm run copy && node out/generator.js && node --inspect out/index.js dummy",
-    "start": "tsc && concurrently \"tsc --watch\" \"node out/generator.js && nodemon --inspect out/index.js dummy\"",
+    "start": "tsc && npm run copy && concurrently \"tsc --watch\" \"node out/generator.js && nodemon --inspect out/index.js dummy\"",
     "generate": "tsc && node out/generator.js",
-    "build": "parcel build --target=node --bundle-node-modules --no-source-maps src/index.ts",
-    "copy": "copyfiles ./web/**/* ./out"
+    "build": "parcel build --target=node --bundle-node-modules --no-source-maps src/index.ts && copyfiles ./images/**/* ./dist/web",
+    "copy": "copyfiles ./images/**/* ./out/web"
   },
   "author": "",
   "license": "ISC",

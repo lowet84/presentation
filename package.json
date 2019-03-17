@@ -6,7 +6,7 @@
   "scripts": {
     "install": "concurrently \"cd client && npm install\" \"cd server && npm install\" \"cd proxy && npm install\" ",
     "start": "concurrently \"cd client && npm start\" \"cd server && npm start\" \"cd proxy && npm start\" ",
-    "build": "cd client && npm run build && cd .. && cd server && npm run build && cd .. && copyfiles -f client/build/* server/dist/web && copyfiles -f server/web/images/* server/dist/web/images"
+    "build": "cd client && npm run build && cd .. && cd server && npm run build && cd .. && copyfiles -f client/build/* server/dist/web"
   },
   "repository": {
     "type": "git",
