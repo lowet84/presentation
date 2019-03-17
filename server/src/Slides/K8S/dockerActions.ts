@@ -7,7 +7,7 @@ var dockerBuild: Action[] = [
       { command: 'mkdir -p example1', visible: false },
       {
         command:
-          "cd example1 && echo \"console.log('Running demo-application on host: ' + require('fs').readFileSync('/etc/hostname','utf8'))\" >> index.js",
+          "cd example1 && echo \"console.log('Running demo-application on host: ' + require('fs').readFileSync('/etc/hostname','utf8'))\" > index.js",
         visible: false
       },
       { command: 'cd example1 && cat index.js', visible: true }
