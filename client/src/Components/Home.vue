@@ -22,7 +22,7 @@
                 <div v-else-if="item.type==='imageBar'" :key="`item${itemIndex}`">
                   <img v-for="image in item.value.split(';')" :key="image" :src="`images/${image}`" class="image-small" :class="`${item.fragment?'fragment':''}`">
                 </div>
-                <Terminal v-else-if="item.type==='terminalWide'" :key="`item${itemIndex}`"></Terminal>
+                <Terminal v-else-if="item.type==='terminalWide'" :key="`item${itemIndex}`" :actions="item.actions" :name="item.value"></Terminal>
               </template>
             </section>
           </template>
