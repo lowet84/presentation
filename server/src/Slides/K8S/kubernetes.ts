@@ -75,6 +75,16 @@ var kubernetes: Slides = {
         { type: 'header3', value: 'Kubernetes - delar' },
         { type: 'imageL', value: 'k8s-overview.png' }
       ]
+    },
+    {
+      demo: true,
+      items: [
+        { type: 'header2', value: 'Deployment' },
+        {
+          type: 'terminalWide',
+          value: 'deployment'
+        }
+      ]
     }
   ]
 }
