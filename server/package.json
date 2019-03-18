@@ -23,7 +23,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@types/node": "^10.12.18",
+    "@types/node": "^10.14.1",
     "concurrently": "^4.1.0",
     "copyfiles": "^2.1.0",
     "koa-bodyparser": "^4.2.1",
