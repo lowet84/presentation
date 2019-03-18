@@ -4,16 +4,22 @@ services:
     build: .
     networks: 
       - kubeadm-dind-net
+      - core
     privileged: true
-    ports:
-      - 3000:3000
     hostname: server
     environment:
       - MODE=prod
       - PASSWORD=dummy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - traefik.port=3000
+      - traefik.frontend.rule=Host:presentation.fredriklowenhamn.se
+      - traefik.enable=true
+      - traefik.docker.network=core
 
 networks:
   kubeadm-dind-net:
+    external: true
+  core:
     external: true

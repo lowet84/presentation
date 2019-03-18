@@ -1,13 +1,14 @@
-import express from 'express'
-import { readFileSync, existsSync } from 'fs'
-
+var express = require('express')
+var fs = require('fs')
 var app = express()
 
 const filename = '/etc/hostname'
-var hostname = existsSync(filename) ? readFileSync(filename, 'utf8') : 'dummy'
+var hostname = fs.existsSync(filename) ? fs.readFileSync(filename, 'utf8') : 'dummy'
 
 app.get('/', function(req, res) {
   res.send(hostname)
 })
 
 app.listen(3000)
+
+

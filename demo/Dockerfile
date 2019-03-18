@@ -7,6 +7,7 @@ RUN npm install
 ADD index.js /app/index.js
 RUN npm run build
 
-FROM arm32v7/node:10-slim
+FROM alpine
+RUN apk add --no-cache nodejs
 COPY --from=builder /app/prod.js /prod.js
 CMD node prod.js
