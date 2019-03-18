@@ -20,7 +20,7 @@ spec:
         name: demo-app
     spec:
       containers:
-      - image: lowet84/k8s2019-demo:arm
+      - image: lowet84/k8s2019-demo:amd64
         imagePullPolicy: Always
         name: demo
         volumeMounts:
@@ -47,13 +47,13 @@ spec:
       },
       {
         command: 'cd example2 && kubectl apply -f deployment.yaml',
-        visible: false
+        visible: true
       }
     ]
   },
   {
     displayName: 'kubectl get deploy',
-    commands: [{ command: 'kubectl get deploy', visible: false }]
+    commands: [{ command: 'kubectl get deploy', visible: true }]
   }
 ]
 var service: Action[] = []
