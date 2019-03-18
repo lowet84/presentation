@@ -24,14 +24,15 @@ var getOne = async () => {
     for (let index = 0; index < item.commands.length; index++) {
       var command = item.commands[index]
       console.log(command.command)
-      var stdout = ''
+      var out = ''
       try{
-        var { temp } = await exec(command.command)
-        stdout = temp
+        var { stdout } = await exec(command.command)
+        out = stdout
       } catch(e){
-        
+//        console.log(e)
       }
-      if (stdout && stdout.length > 0) {
+//      console.log(out)
+      if (command.visible && out && out.length > 0) {
         var lines = stdout.split(/\r?\n/) || []
         for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
           var line = lines[lineIndex] || ''
