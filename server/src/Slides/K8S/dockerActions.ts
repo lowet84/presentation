@@ -71,14 +71,14 @@ var dockerPullAndRun: Action[] = [
       },
       {
         command:
-          'docker run -d -p 3000:3000 --name example lowet84/k8s2019-port-volume-demo',
+          'docker run -d -p 3000:3000 --name example --net=core lowet84/k8s2019-port-volume-demo',
         visible: true
       }
     ]
   },
   {
-    displayName: 'curl http://localhost:3000',
-    commands: [{ command: 'curl http://localhost:3000', visible: true }]
+    displayName: 'curl http://example:3000',
+    commands: [{ command: 'curl http://example:3000', visible: true }]
   },
   {
     displayName:
@@ -90,14 +90,14 @@ var dockerPullAndRun: Action[] = [
       },
       {
         command:
-          'docker run -d -p 3000:3000 -v /etc/hostname:/etc/hostname --name example lowet84/k8s2019-port-volume-demo',
+          'docker run -d -p 3000:3000 -v /etc/hostname:/etc/hostname --name example --net=core lowet84/k8s2019-port-volume-demo',
         visible: true
       }
     ]
   },
   {
-    displayName: 'curl http://localhost:3000',
-    commands: [{ command: 'curl http://localhost:3000', visible: true }]
+    displayName: 'curl http://example:3000',
+    commands: [{ command: 'curl http://example:3000', visible: true }]
   }
 ]
 
