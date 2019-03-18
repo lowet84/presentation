@@ -39,7 +39,7 @@ export class CommandController {
         for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
           var line = lines[lineIndex] || ''
           console.log(line)
-          if (line.length > 0) results.push(line)
+          if (line.length > 0) results.push(line.replace(' ','_'))
         }
       }
     }
