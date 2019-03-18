@@ -1,3 +1,6 @@
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
+
 var commands = {
     displayName:
       'docker run -d -p 3000:3000 -v /etc/hostname:/etc/hostname lowet84/k8s2019-port-volume-demo',
@@ -16,12 +19,18 @@ var commands = {
 
 var getOne = async () => {
     var item = commands
-    if (process.env.MODE !== 'prod') return item.commands.map(d => d.command)
+//    if (process.env.MODE !== 'prod') return item.commands.map(d => d.command)
     var results = []
     for (let index = 0; index < item.commands.length; index++) {
       var command = item.commands[index]
       console.log(command.command)
-      var { stdout, stderr } = await exec(command.command)
+      var stdout = ''
+      try{
+        var { temp } = await exec(command.command)
+        stdout = temp
+      } catch(e){
+        
+      }
       if (stdout && stdout.length > 0) {
         var lines = stdout.split(/\r?\n/) || []
         for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
@@ -35,7 +44,7 @@ var getOne = async () => {
 }
 
 var run = async ()=>{
-    var result = getOne()
+    var result = await getOne()
     console.log(result)
 }
 
