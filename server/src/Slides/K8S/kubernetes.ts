@@ -46,6 +46,35 @@ var kubernetes: Slides = {
         { type: 'text', value: 'Skalbarhet', fragment: true },
         { type: 'text', value: 'Pålitlighet', fragment: true }
       ]
+    },
+    {
+      items: [
+        { type: 'header3', value: 'Kubernetes - struktur' },
+        { type: 'text', value: 'Master' },
+        { type: 'text', value: 'Node', fragment: true },
+        { type: 'text', value: 'Network layer', fragment: true }
+      ]
+    },
+    {
+      items: [
+        { type: 'header3', value: 'Kubernetes - struktur' },
+        { type: 'imageL', value: 'master-node.png' }
+      ]
+    },
+    {
+      items: [
+        { type: 'header3', value: 'Kubernetes - delar' },
+        { type: 'text', value: 'Pod' },
+        { type: 'text', value: 'Deployment', fragment: true },
+        { type: 'text', value: 'Service', fragment: true },
+        { type: 'text', value: 'Ingress', fragment: true }
+      ]
+    },
+    {
+      items: [
+        { type: 'header3', value: 'Kubernetes - delar' },
+        { type: 'imageL', value: 'k8s-overview.png' }
+      ]
     }
   ]
 }
