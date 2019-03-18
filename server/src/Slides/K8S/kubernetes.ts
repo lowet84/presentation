@@ -31,6 +31,21 @@ var kubernetes: Slides = {
       items: [
         { type: 'imageBar', value: 'actual-potato.png;arrow.png;lule.png' }
       ]
+    },
+    {
+      items: [
+        { type: 'header3', value: 'Kubernetes' },
+        { type: 'imageL', value: 'k8s.png' }
+      ]
+    },
+    {
+      items: [
+        { type: 'header3', value: 'Kubernetes' },
+        { type: 'text', value: 'Orkestrerings-plattform' },
+        { type: 'text', value: 'Startad av Google', fragment: true },
+        { type: 'text', value: 'Skalbarhet', fragment: true },
+        { type: 'text', value: 'Pålitlighet', fragment: true }
+      ]
     }
   ]
 }
