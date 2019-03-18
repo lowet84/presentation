@@ -63,7 +63,7 @@ var dockerPullAndRun: Action[] = [
     ]
   },
   {
-    displayName: 'docker run -d -p 3200:3200 lowet84/k8s2019-port-volume-demo',
+    displayName: 'docker run -d -p 3200:3200 --hostname container lowet84/k8s2019-port-volume-demo',
     commands: [
       {
         command: 'docker rm -f example',
@@ -71,7 +71,7 @@ var dockerPullAndRun: Action[] = [
       },
       {
         command:
-          'docker run -d -p 3200:3200 --name example lowet84/k8s2019-port-volume-demo',
+          'docker run -d -p 3200:3200 --name example --hostname container lowet84/k8s2019-port-volume-demo',
         visible: true
       }
     ]
@@ -82,7 +82,7 @@ var dockerPullAndRun: Action[] = [
   },
   {
     displayName:
-      'docker run -d -p 3200:3200 -v /etc/hostname:/etc/hostname lowet84/k8s2019-port-volume-demo',
+      'docker run -d -p 3200:3200 -v /etc/hostname:/etc/hostname --hostname container lowet84/k8s2019-port-volume-demo',
     commands: [
       {
         command: 'docker rm -f example',
@@ -90,7 +90,7 @@ var dockerPullAndRun: Action[] = [
       },
       {
         command:
-          'docker run -d -p 3200:3200 -v /etc/hostname:/etc/hostname --name example lowet84/k8s2019-port-volume-demo',
+          'docker run -d -p 3200:3200 -v /etc/hostname:/etc/hostname --name example --hostname container lowet84/k8s2019-port-volume-demo',
         visible: true
       }
     ]
