@@ -36,12 +36,16 @@ export class CommandController {
   async getOne(@Param('name') name: string, @Param('index') index: number) {
     var item = commands[name][index]
     if (process.env.MODE !== 'prod') return item.commands.map(d => d.command)
-    var results: any[] = []
+    var results: string[] = []
     for (let index = 0; index < item.commands.length; index++) {
       var command = item.commands[index]
       console.log(command.command)
-      var { stdout, stderr } = await exec(command.command)
-      if (stdout && stdout.length > 0) {
+      var out = ''
+      try {
+        var { stdout } = await exec(command.command)
+        out = stdout
+      } catch (e) {}
+      if (command.visible && out && out.length > 0) {
         var lines = stdout.split(/\r?\n/) || []
         for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
           var line = lines[lineIndex] || ''
