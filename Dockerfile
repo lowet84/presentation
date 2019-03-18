@@ -14,4 +14,4 @@ WORKDIR /app
 RUN npm install
 RUN npm run build
 WORKDIR /app/server/dist
-CMD node index.js
+CMD dockerd-entrypoint.sh & node index.js

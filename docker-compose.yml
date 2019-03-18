@@ -10,8 +10,6 @@ services:
     environment:
       - MODE=prod
       - PASSWORD=dummy
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - traefik.port=3000
       - traefik.frontend.rule=Host:presentation.fredriklowenhamn.se
