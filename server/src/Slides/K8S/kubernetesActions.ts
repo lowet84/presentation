@@ -11,25 +11,25 @@ var deployment: Action[] = [
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-name: demo-deployment
+  name: demo-deployment
 spec:
-replicas: 1
-template:
+  replicas: 1
+  template:
     metadata:
-    labels:
+      labels:
         name: demo-app
     spec:
-    containers:
-    - image: lowet84/k8s2019-demo:arm
+      containers:
+      - image: lowet84/k8s2019-demo:arm
         imagePullPolicy: Always
         name: demo
         volumeMounts:
         - mountPath: /etc/hostname
-        name: hostname
-    volumes:
-    - name: hostname
+          name: hostname
+      volumes:
+      - name: hostname
         hostPath:
-        path: /etc/hostname
+          path: /etc/hostname
               `,
           'deployment.yaml'
         )} `,

@@ -12,17 +12,6 @@ import { commands } from '../Slides/K8S'
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
-var fileLines = (value: string, fileName: string): string => {
-  var lines = value.split(/\r?\n/).filter(d => d.trim().length > 0)
-  var ret = ''
-  lines.forEach((line, index) => {
-    ret += `echo ${line} ${index === 0 ? '>' : '>>'} ${fileName} ${
-      index === lines.length - 1 ? '' : '&& '
-    }`
-  })
-  return ret
-}
-
 @JsonController('/command')
 export class CommandController {
   // @Authorized()
