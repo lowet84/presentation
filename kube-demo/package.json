@@ -1,0 +1,23 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build --target=node --bundle-node-modules server.ts && parcel build client/index.html --out-dir dist/web",
+    "dev": "npm run build && concurrently \"node dist/server.js dev\" \"parcel client/dev.html --port 1111\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "parcel": "^1.11.0",
+    "typescript": "^3.2.1"
+  },
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "compression": "^1.7.3",
+    "express": "^4.16.4",
+    "lit-html": "^0.14.0"
+  }
+}
