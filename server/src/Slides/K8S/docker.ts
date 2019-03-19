@@ -1,14 +1,14 @@
 var docker: Slides = {
   sections: [
     {
-      items: [{ type: 'header2', value: 'Vanliga deployment-problem' }]
+      items: [{ type: 'header2', value: 'Vanliga deployment-problem', eng: 'Common deployment problems' }]
     },
     {
       items: [
-        { type: 'header2', value: 'Vanliga deployment-problem' },
-        { type: 'text', value: 'Komplicerat att installera', fragment: true },
-        { type: 'text', value: 'Manuella steg', fragment: true },
-        { type: 'text', value: 'Filkopiering', fragment: true },
+        { type: 'header2', value: 'Vanliga deployment-problem', eng: 'Common deployment problems' },
+        { type: 'text', value: 'Komplicerat att installera', fragment: true, eng: 'Complex installation' },
+        { type: 'text', value: 'Manuella steg', fragment: true , eng: 'Manual steps'},
+        { type: 'text', value: 'Filkopiering', fragment: true, eng: 'File copying' },
         { type: 'text', value: 'Dependency-hell', fragment: true }
       ]
     },
@@ -26,15 +26,16 @@ var docker: Slides = {
     },
     {
       items: [
-        { type: 'header2', value: 'Vad är Docker?' },
+        { type: 'header2', value: 'Vad är Docker?',eng:'What is Docker?' },
         {
           type: 'text',
           value: 'Alternativ till Virtual Machine',
+          eng: 'Alternative to Virtual Machine',
           fragment: true
         },
-        { type: 'text', value: 'App-virtualisering', fragment: true },
+        { type: 'text', value: 'App-virtualisering', fragment: true, eng: 'App-virtualization' },
         { type: 'text', value: 'Sandbox', fragment: true },
-        { type: 'text', value: 'Paketering', fragment: true },
+        { type: 'text', value: 'Paketering', fragment: true, eng: 'Packaging' },
         { type: 'text', value: 'Deployment', fragment: true }
       ]
     },
@@ -72,8 +73,8 @@ var docker: Slides = {
     },
     {
       items: [
-        { type: 'header2', value: 'Livet utanför sandboxen' },
-        { type: 'text', value: '4 kommandon till' },
+        { type: 'header2', value: 'Livet utanför sandboxen', eng: 'Life outside the Sandbox' },
+        { type: 'text', value: '4 kommandon till', eng: '4 more commands' },
         { type: 'text', value: 'Push', fragment: true },
         { type: 'text', value: 'Pull', fragment: true },
         { type: 'text', value: 'Port', fragment: true },

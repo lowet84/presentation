@@ -1,18 +1,25 @@
 <template>
   <div class="reveal">
     <div class="slides">
+      <section>
+        <div>{{language==='swe'?'Språk':'Language'}}</div>
+        <div class="language-select">
+          <v-btn color="primary" @click="selectLanguage('swe')">swe{{language==="swe"?'&lt;==':''}}</v-btn>
+          <v-btn color="accent" @click="selectLanguage('eng')">eng{{language==="eng"?'&lt;==':''}}</v-btn>
+        </div>
+      </section>
       <template v-for="(slide,slideIndex) in slides">
         <section :key="`slide${slideIndex}`">
           <template v-for="(section, sectionIndex) in slide.sections">
             <section :key="`section${sectionIndex}`" :data-background="section.demo?'#505050':''">
               <template v-for="(item, itemIndex) in section.items">
-                <h1 v-if="item.type==='header1'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</h1>
-                <h2 v-else-if="item.type==='header2'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</h2>
-                <h3 v-else-if="item.type==='header3'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</h3>
-                <h4 v-else-if="item.type==='header4'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</h4>
-                <h5 v-else-if="item.type==='header5'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</h5>
-                <h6 v-else-if="item.type==='header6'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</h6>
-                <div v-else-if="item.type==='text'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{item.value}}</div>
+                <h1 v-if="item.type==='header1'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</h1>
+                <h2 v-else-if="item.type==='header2'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</h2>
+                <h3 v-else-if="item.type==='header3'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</h3>
+                <h4 v-else-if="item.type==='header4'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</h4>
+                <h5 v-else-if="item.type==='header5'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</h5>
+                <h6 v-else-if="item.type==='header6'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</h6>
+                <div v-else-if="item.type==='text'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">{{text(item)}}</div>
                 <div v-else-if="item.type==='imageS'" :key="`item${itemIndex}`" :class="`${item.fragment?'fragment':''}`">
                   <img :src="`images/${item.value}`" class="image-small">
                 </div>
@@ -41,6 +48,18 @@ const slides = namespace('slides')
 @Component({components:{Terminal}})
 export default class extends Vue {
   @slides.Getter slides
+
+  language = 'swe'
+
+  get text(){
+    return (item: {value: string, eng?: string}) => {
+      return (this.language === 'eng'?item.eng || item.value : item.value )
+    }
+  }
+
+  selectLanguage(language: string){
+    this.language = language
+  }
 
   @Watch('$route.path')
   onRouteChanged(val: string, oldVal: string) {
@@ -109,5 +128,10 @@ body {
 }
 .demo{
   background: darkgray;
+}
+.language-select{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 </style>

@@ -9,6 +9,7 @@ declare interface Section {
 
 declare interface Item {
   value: string
+  eng?: string
   type: string
   fragment?: boolean
   actions?: Action[]
