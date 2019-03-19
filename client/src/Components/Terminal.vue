@@ -31,7 +31,7 @@ export default class extends Vue {
       method: 'POST'
     })).json()
     this.results.push(`===> ${this.currentAction}`)
-    this.results = this.results.concat(res)
+    this.results = this.results.concat(res.map(d=>d.split('+').join(' ')))
     this.results.push('--------------------------------')
     this.counter++
   }
