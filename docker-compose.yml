@@ -15,6 +15,21 @@ services:
       - traefik.frontend.rule=Host:presentation.fredriklowenhamn.se
       - traefik.enable=true
       - traefik.docker.network=core
+   
+  proxy:
+    image: lowet84/port-forward
+    environment:
+      - FROM=8080
+      - TO=30080
+      - HOST=kube-node-1
+    networks:
+     - kubeadm-dind-net
+     - core
+    labels:
+     - traefik.port=8080
+     - traefik.frontend.rule=Host:k8sdemo.duckdns.org
+     - traefik.enable=true
+     - traefik.docker.network=core
 
 networks:
   kubeadm-dind-net:
