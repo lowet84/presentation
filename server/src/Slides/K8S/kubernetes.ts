@@ -85,6 +85,26 @@ var kubernetes: Slides = {
           value: 'deployment'
         }
       ]
+    },
+    {
+      demo: true,
+      items: [
+        { type: 'header2', value: 'Service' },
+        {
+          type: 'terminalWide',
+          value: 'service'
+        }
+      ]
+    },
+    {
+      demo: true,
+      items: [
+        { type: 'header2', value: 'Ingress' },
+        {
+          type: 'terminalWide',
+          value: 'ingress'
+        }
+      ]
     }
   ]
 }
