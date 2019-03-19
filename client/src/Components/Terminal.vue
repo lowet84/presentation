@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <v-btn class="reset" color="grey darken-2" @click="reset">Reset</v-btn>
-    <div v-for="(result,index) in results" :key="`result${index}`">{{result}}</div>
+    <div v-for="(result,index) in results" :key="`result${index}`" v-html="result"></div>
     <v-btn
       v-if="currentAction"
       type="submit"
@@ -31,7 +31,7 @@ export default class extends Vue {
       method: 'POST'
     })).json()
     this.results.push(`===> ${this.currentAction}`)
-    this.results = this.results.concat(res.map(d=>d.split('+').join(' ')))
+    this.results = this.results.concat(res.map(d=>d.split('+').join('&nbsp;')))
     this.results.push('--------------------------------')
     this.counter++
   }
