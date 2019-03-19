@@ -1,29 +1,29 @@
 var kubernetes: Slides = {
   sections: [
     {
-      items: [{ type: 'header3', value: 'Det börjar bli trångt...' }]
+      items: [{ type: 'header3', value: 'Det börjar bli trångt...', eng: 'It\'s getting crowded...' }]
     },
     {
       items: [
-        { type: 'header3', value: 'Det börjar bli trångt...' },
+        { type: 'header3', value: 'Det börjar bli trångt...', eng: 'It\'s getting crowded...' },
         { type: 'imageL', value: 'potato.jpg' }
       ]
     },
     {
       items: [
-        { type: 'header3', value: 'Det börjar bli trångt...' },
+        { type: 'header3', value: 'Det börjar bli trångt...', eng: 'It\'s getting crowded...' },
         { type: 'imageL', value: 'server.jpg' }
       ]
     },
     {
       items: [
-        { type: 'header3', value: 'Det börjar bli trångt...' },
+        { type: 'header3', value: 'Det börjar bli trångt...', eng: 'It\'s getting crowded...' },
         { type: 'imageL', value: 'room.jpg' }
       ]
     },
     {
       items: [
-        { type: 'header3', value: 'Det börjar bli trångt...' },
+        { type: 'header3', value: 'Det börjar bli trångt...', eng: 'It\'s getting crowded...' },
         { type: 'imageL', value: 'facebook.jpg' }
       ]
     },
@@ -41,15 +41,15 @@ var kubernetes: Slides = {
     {
       items: [
         { type: 'header3', value: 'Kubernetes' },
-        { type: 'text', value: 'Orkestrerings-plattform' },
-        { type: 'text', value: 'Startad av Google', fragment: true },
-        { type: 'text', value: 'Skalbarhet', fragment: true },
-        { type: 'text', value: 'Pålitlighet', fragment: true }
+        { type: 'text', value: 'Orkestrerings-plattform', eng: 'Orchestration-platform' },
+        { type: 'text', value: 'Startad av Google', fragment: true, eng: 'Started by Google' },
+        { type: 'text', value: 'Skalbarhet', fragment: true, eng: 'Scalability' },
+        { type: 'text', value: 'Pålitlighet', fragment: true, eng: 'Reliability' }
       ]
     },
     {
       items: [
-        { type: 'header3', value: 'Kubernetes - struktur' },
+        { type: 'header3', value: 'Kubernetes - struktur', eng: 'Kubernetes - structure' },
         { type: 'text', value: 'Master' },
         { type: 'text', value: 'Node', fragment: true },
         { type: 'text', value: 'Network layer', fragment: true }
@@ -57,13 +57,13 @@ var kubernetes: Slides = {
     },
     {
       items: [
-        { type: 'header3', value: 'Kubernetes - struktur' },
+        { type: 'header3', value: 'Kubernetes - struktur', eng: 'Kubernetes - structure' },
         { type: 'imageL', value: 'master-node.png' }
       ]
     },
     {
       items: [
-        { type: 'header3', value: 'Kubernetes - delar' },
+        { type: 'header3', value: 'Kubernetes - delar', eng: 'Kubernetes - parts' },
         { type: 'text', value: 'Pod' },
         { type: 'text', value: 'Deployment', fragment: true },
         { type: 'text', value: 'Service', fragment: true },
@@ -72,7 +72,7 @@ var kubernetes: Slides = {
     },
     {
       items: [
-        { type: 'header3', value: 'Kubernetes - delar' },
+        { type: 'header3', value: 'Kubernetes - delar', eng: 'Kubernetes - parts' },
         { type: 'imageL', value: 'k8s-overview.png' }
       ]
     },
