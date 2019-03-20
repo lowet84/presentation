@@ -8,7 +8,7 @@
 
     <div class="demo-box">
       <div v-for="box in boxes" :key="box.name" class="node-box">
-        <div>{{box.name}}</div>
+        <div class="node-header">{{box.name}}</div>
         <div class="node-flex">
           <div v-for="proc in box.procs" :key="proc.name">
             <div class="proc-box" :style="style(proc.stuff)"></div>
@@ -139,7 +139,11 @@ export default class extends Vue {
 }
 
 .proc-box {
-  width: 3em !important;
-  height: 3em !important;
+  width: 1.7em !important;
+  height: 2em !important;
+}
+
+.node-header{
+  font-size: 0.8em !important;
 }
 </style>
