@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <v-btn class="reset" color="grey darken-2" @click="reset">Reset</v-btn>
-    <div v-for="(result,index) in results" :key="`result${index}`" v-html="result"></div>
+    <div v-for="(result,index) in results" :key="`result${index}`" v-html="result" class="results"></div>
     <v-btn
       v-if="currentAction"
       type="submit"
@@ -71,6 +71,10 @@ export default class extends Vue {
   overflow: scroll !important;
   height: 40em;
   text-align: left;
+}
+.results::selection {
+  background: black !important;
+  color: white !important;
 }
 .reset {
   font-size: 0.7em;
