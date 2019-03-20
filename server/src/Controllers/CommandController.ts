@@ -14,13 +14,13 @@ const exec = util.promisify(require('child_process').exec)
 
 @JsonController('/command')
 export class CommandController {
-  // @Authorized()
+  @Authorized()
   @Get('/')
   getAll() {
     return commands
   }
 
-  // @Authorized()
+  @Authorized()
   @Post('/:name/:index')
   async getOne(@Param('name') name: string, @Param('index') index: number) {
     var item = commands[name][index]

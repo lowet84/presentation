@@ -30,6 +30,7 @@
                   <img v-for="image in item.value.split(';')" :key="image" :src="`images/${image}`" class="image-small" :class="`${item.fragment?'fragment':''}`">
                 </div>
                 <Terminal v-else-if="item.type==='terminalWide'" :key="`item${itemIndex}`" :actions="item.actions" :name="item.value"></Terminal>
+                <K8sDemo v-else-if="item.type==='k8sdemo'" :key="`item${itemIndex}`" :host="item.value"></K8sDemo>
               </template>
             </section>
           </template>
@@ -43,9 +44,10 @@
 import { Vue, Component, Watch } from 'vue-property-decorator'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
 import Terminal from './Terminal.vue'
+import K8sDemo from './K8sDemo.vue'
 const slides = namespace('slides')
 
-@Component({components:{Terminal}})
+@Component({components:{Terminal, K8sDemo}})
 export default class extends Vue {
   @slides.Getter slides
 

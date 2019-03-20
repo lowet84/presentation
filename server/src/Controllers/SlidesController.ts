@@ -13,7 +13,7 @@ import { slides, commands } from '../Slides/K8S'
 
 @JsonController('/slides')
 export class SlidesController {
-  // @Authorized()
+  @Authorized()
   @Get('/')
   getAll() {
     var ret = JSON.parse(JSON.stringify(slides))

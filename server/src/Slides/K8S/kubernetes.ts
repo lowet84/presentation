@@ -105,6 +105,15 @@ var kubernetes: Slides = {
           value: 'ingress'
         }
       ]
+    },
+    {
+      items: [
+        { type: 'header2', value: 'https://k8sdemo.duckdns.org' },
+        {
+          type: 'k8sdemo',
+          value: 'https://k8sdemo.duckdns.org/api'
+        }
+      ]
     }
   ]
 }

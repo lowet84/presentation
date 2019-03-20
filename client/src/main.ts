@@ -34,6 +34,8 @@ import VDialog from 'vuetify/lib/components/VDialog'
 // @ts-ignore
 import VTextField from 'vuetify/lib/components/VTextField'
 // @ts-ignore
+import VSlider from 'vuetify/lib/components/VSlider'
+// @ts-ignore
 import { Ripple } from 'vuetify/lib/directives'
 
 Vue.use(Vuetify, {
@@ -44,7 +46,8 @@ Vue.use(Vuetify, {
     VCard,
     VForm,
     VDialog,
-    VTextField
+    VTextField,
+    VSlider
   },
   directives: {
     Ripple

@@ -148,4 +148,196 @@ spec:
   }
 ]
 
-export { deployment, service, ingress }
+var scale: Action[] = [
+  {
+    displayName: 'scale0',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=0'
+      }
+    ]
+  },
+  {
+    displayName: 'scale1',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=1'
+      }
+    ]
+  },
+  {
+    displayName: 'scale2',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=2'
+      }
+    ]
+  },
+  {
+    displayName: 'scale3',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=3'
+      }
+    ]
+  },
+  {
+    displayName: 'scale4',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=4'
+      }
+    ]
+  },
+  {
+    displayName: 'scale5',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=5'
+      }
+    ]
+  },
+  {
+    displayName: 'scale6',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=6'
+      }
+    ]
+  },
+  {
+    displayName: 'scale7',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=7'
+      }
+    ]
+  },
+  {
+    displayName: 'scale8',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=8'
+      }
+    ]
+  },
+  {
+    displayName: 'scale9',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=9'
+      }
+    ]
+  },
+  {
+    displayName: 'scale10',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=10'
+      }
+    ]
+  },
+  {
+    displayName: 'scale11',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=11'
+      }
+    ]
+  },
+  {
+    displayName: 'scale12',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=12'
+      }
+    ]
+  },
+  {
+    displayName: 'scale13',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=13'
+      }
+    ]
+  },
+  {
+    displayName: 'scale14',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=14'
+      }
+    ]
+  },
+  {
+    displayName: 'scale15',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=15'
+      }
+    ]
+  },
+  {
+    displayName: 'scale16',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=16'
+      }
+    ]
+  },
+  {
+    displayName: 'scale17',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=17'
+      }
+    ]
+  },
+  {
+    displayName: 'scale18',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=18'
+      }
+    ]
+  },
+  {
+    displayName: 'scale19',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=19'
+      }
+    ]
+  },
+  {
+    displayName: 'scale10',
+    commands: [
+      {
+        visible: false,
+        command: ' kubectl scale deploy demo-deployment --replicas=20'
+      }
+    ]
+  }
+]
+
+export { deployment, service, ingress, scale }
