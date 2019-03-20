@@ -24,6 +24,8 @@ import { Vue, Component, Watch, Prop } from 'vue-property-decorator'
 import { State, Getter, Action, Mutation, namespace } from 'vuex-class'
 import { setTimeout, clearTimeout, setInterval, clearInterval } from 'timers'
 import { stringify } from 'querystring'
+import ServiceBase from '../service/ServiceBase'
+import urljoin from 'url-join'
 
 @Component
 export default class extends Vue {
@@ -35,8 +37,17 @@ export default class extends Vue {
 
   replicas = 1
 
-  async scale(){
-
+  async scale() {
+    var token = localStorage.getItem('token')
+    var url = `/api/command/scale/${this.replicas}`
+    var result: any = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      }
+    })
   }
 
   startStop() {
@@ -44,6 +55,7 @@ export default class extends Vue {
     else {
       clearInterval(this.timer)
       this.timer = null
+      this.items = {}
     }
   }
 

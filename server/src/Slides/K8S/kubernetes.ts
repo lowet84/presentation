@@ -109,6 +109,7 @@ var kubernetes: Slides = {
     {
       items: [
         { type: 'header2', value: 'https://k8sdemo.duckdns.org' },
+        { type: 'text', value: 'kubectl scale deploy demo-deployment --replicas=N' },
         {
           type: 'k8sdemo',
           value: 'https://k8sdemo.duckdns.org/api'
