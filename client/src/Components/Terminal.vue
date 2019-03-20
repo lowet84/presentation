@@ -27,9 +27,17 @@ export default class extends Vue {
   }
 
   async runCurrentAction() {
-    var res = await (await fetch(`/api/command/${this.name}/${this.counter}`, {
-      method: 'POST'
-    })).json()
+    var url = `/api/command/${this.name}/${this.counter}`
+    var token = localStorage.getItem('token')
+    var result: any = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      }
+    })
+    var res = await result.json()
     this.results.push(`===> ${this.currentAction}`)
     this.results = this.results.concat(res.map(d=>d.split('+').join('&nbsp;')))
     this.results.push('--------------------------------')
