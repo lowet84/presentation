@@ -40,7 +40,7 @@ CMD node /app/index.js
     commands: [
       {
         command: 'cd example1 && docker build -t docker-demo .',
-        visible: false
+        visible: true
       }
     ]
   },
@@ -49,7 +49,7 @@ CMD node /app/index.js
     commands: [
       {
         command: 'cd example1 && docker run --hostname=container docker-demo',
-        visible: false
+        visible: true
       }
     ]
   }
