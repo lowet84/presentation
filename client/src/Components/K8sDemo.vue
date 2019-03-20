@@ -94,7 +94,6 @@ export default class extends Vue {
         if (value.countdown <= 0) delete item[key]
       })
     })
-    console.log(JSON.stringify(temp))
     this.items = temp
   }
 
@@ -113,7 +112,7 @@ export default class extends Vue {
 .demo-box {
   background: darkgray;
   color: black;
-  height: 17em;
+  height: 15em;
   width: 30em;
   display: flex;
   flex-wrap: wrap;
