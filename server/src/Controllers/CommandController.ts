@@ -32,6 +32,11 @@ export class CommandController {
       var out = ''
       try {
         var { stdout, stderr } = await exec(command.command)
+        console.log('--------------')
+        console.log(command.command)
+        console.log(stdout)
+        console.log(stderr)
+        console.log('==============')
         out = stdout
       } catch (e) {
         out = e
