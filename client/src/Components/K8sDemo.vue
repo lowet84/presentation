@@ -2,7 +2,7 @@
   <div>
     <div class="button-flex">
       <v-btn @click="startStop">{{startStopText}}</v-btn>
-      <v-slider v-model="replicas" :max="20" :min="1"></v-slider>
+      <input type="range" min="1" max="20" value="1" class="slider" id="myRange" @change="change">
       <v-btn @click="scale">scale to: {{replicas}}</v-btn>
     </div>
 
@@ -30,6 +30,10 @@ import urljoin from 'url-join'
 @Component
 export default class extends Vue {
   @Prop() host
+
+  change(value: any){
+    this.replicas = value.target.value
+  }
 
   items: any = {}
 
