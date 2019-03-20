@@ -9,7 +9,7 @@ services:
     hostname: server
     environment:
       - MODE=prod
-      - PASSWORD=dummy
+      - PASSWORD=${PASSWORD}
     labels:
       - traefik.port=3000
       - traefik.frontend.rule=Host:presentation.fredriklowenhamn.se
