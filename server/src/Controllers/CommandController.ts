@@ -31,9 +31,11 @@ export class CommandController {
       console.log(command.command)
       var out = ''
       try {
-        var { stdout } = await exec(command.command)
+        var { stdout, stderr } = await exec(command.command)
         out = stdout
-      } catch (e) {}
+      } catch (e) {
+        out = e
+      }
       if (command.visible && out && out.length > 0) {
         var lines = stdout.split(/\r?\n/) || []
         for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
