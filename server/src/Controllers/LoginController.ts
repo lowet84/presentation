@@ -17,6 +17,7 @@ export class LoginController {
 
   constructor() {
     this.password = process.env.PASSWORD || process.argv[2]
+    console.log(`Password is: ${this.password}`)
     console.log(this.password)
   }
 
