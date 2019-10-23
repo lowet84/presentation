@@ -10,6 +10,7 @@ import {
 } from 'routing-controllers'
 
 import { slides, commands } from '../Slides/K8S'
+import { slides as wsSlides } from '../Slides/Workshop'
 
 @JsonController('/slides')
 export class SlidesController {
@@ -27,5 +28,11 @@ export class SlidesController {
       })
     })
     return ret
+  }
+
+  @Authorized()
+  @Get('/workshop')
+  getWorkshop() {
+    return JSON.parse(JSON.stringify(wsSlides))
   }
 }
