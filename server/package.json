@@ -28,7 +28,7 @@
     "copyfiles": "^2.1.0",
     "koa-bodyparser": "^4.2.1",
     "nodemon": "^1.18.9",
-    "parcel": "^1.11.0",
+    "parcel": "^2.8.2",
     "typescript": "^3.2.4"
   }
 }
