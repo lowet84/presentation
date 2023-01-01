@@ -23,7 +23,7 @@
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.9",
     "openapi-client": "^1.0.4",
-    "parcel": "^1.11.0",
+    "parcel": "^2.8.2",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "typescript": "^3.2.4",
     "vue-template-compiler": "^2.5.22"
